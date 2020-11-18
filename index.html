@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gif OS Mica Artiaga</title>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <!-- STYLE SHEETS -->
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/variables.css">
+
+</head>
+
+<body>
+    <header>
+        <!-- TOP BIENVENIDOS -->
+        <div id="topHeader">
+            <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <span> 12.765.803
+                </span> </p>
+        </div>
+
+        <!-- HEADER -->
+        <div id="navbarContainer">
+            <!-- LOGO GIFOS-->
+            <div id="logo">
+                <a href="index.html">
+                    <img src="./assets/gifOF_logo.png" alt="logo-gifos">
+                </a>
+            </div>
+            <!-- BOTONES -->
+            <nav>
+                <ul>
+                    <!-- CREAR GIFOS -->
+                    <li id="btnCrearGifos" class="pinkButton">
+                        <a href="">Crear Guifos</a>
+                    </li>
+                    <!-- ELEGIR TEMA -->
+                    <li>
+                        <div id="dropdownContainer">
+                            <button id="btnDropdown01" class="pinkButton" onclick="">Elegir tema</button>
+                            <button id="btnDropdown02" class="pinkButton">
+                                <img src="./assets/dropdown.svg" alt="dropdown">
+                            </button>
+                        </div>
+                        <div id="temaDropdown" class="temaDropdown">
+                            <div id="sailorDayBtn"><span class="underline">S</span>ailor Day</div>
+                            <div id="sailorNightBtn">Sailor Night</div>
+                        </div>
+                        <!-- MIS GIFOS -->
+                    </li>
+                    <li id="btnMisGifos">
+                        <a href=""><span class="underline">M</span>is Guifos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- BUSCADOR -->
+
+        <div id="buscarContainer">
+            <div class="gradientBar">Buscar</div>
+            <div>
+                <form>
+                    <input id="textContainer" type="text"
+                        placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                    <button type="submit" id="buscarBtn">
+                        <span id="lupita"></span>
+                        <p>Buscar</p>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+        <section id="sugerenciasContainer">
+            <div class="whiteBarTitles">Hoy te sugerimos:</div>
+            <div id="sugerenciaCard">
+                <!-- <div class="miniContainerSugerencias">
+                    <div class="miniBarSugerencias gradientBar">
+                        <p>#TheOffice</p>
+                        <img src="./assets/button3.svg" alt="close">
+                    </div>
+                    <div class="sugerenciaGif">
+                        <img src="https://media.giphy.com/media/ihBQKvIE7gLEA/giphy.gif" alt="">
+                        <button class="seeMoreBtn">Ver más...</button>
+                    </div>
+                </div> -->
+
+            </div>
+
+        </section>
+
+        <section id="tendenciasContainer">
+
+        </section>
+
+        <section id="resultadosContainer"></section>
+
+
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>

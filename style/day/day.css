@@ -1,0 +1,44 @@
+@import "./header-day.css";
+@import "./sugerencias-day.css";
+
+
+/* CLASSES */
+
+/* Subrayado Letra */
+.underline {
+    border-bottom: 1px solid var(--font-violet);
+ }   
+
+ /* Botones Rosas */
+
+.pinkButton{
+    background: var(--button-color-day-pink1);
+    border: 1px solid var(--font-violet);
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    text-align: center;   
+ }
+
+.gradientBar{
+    background-image: var(--gradient-day);
+    font-weight: bolder;
+    font-size: 14px;
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    color: white;
+    height: 24px;
+ }
+
+ .whiteBarTitles{
+    height: 32px;
+    width: 1200px ;
+    background: #FFFAFE;
+    border: 1px solid var(--button-color-day-pink2);
+    box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+    font-size: 14px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    padding: 7px;
+    margin-top: 64px;
+    margin-bottom: 16px;
+ }
