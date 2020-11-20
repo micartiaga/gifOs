@@ -1,6 +1,6 @@
 /* TOP BIENVENIDOS */
 #topHeader {
-    background-image: var(--gradient-day);
+    background-image: var(--gradient-night);
     color: var(--font-white);
     font-size: 12px;
     letter-spacing: 0;
@@ -15,7 +15,7 @@
 #navbarContainer{
     /* font-size: 16px; */
     font-weight: 400;
-    color: var(--font-violet);
+    color: var(--font-white);
     margin-top: 39px;
     margin-left: 91px;
     margin-right: 140px;
@@ -75,7 +75,7 @@ nav button{
 }
 
 #btnCrearGifos:hover, #btnCrearGifos:active{
-    background: var(--button-color-day-pink2);
+    background: var(--button-color-night-pink2);
     outline: 1px dotted #110038 ;
     outline-offset: -4px;
 }
@@ -90,7 +90,7 @@ nav button{
 }
 
 #dropdownContainer:hover button, #dropdownContainer:active button  {
-    background: var(--button-color-day-pink2);
+    background: var(--button-color-night-pink2);
     outline: 1px dotted #110038 ;
     outline-offset: -4px;
  }
@@ -101,8 +101,8 @@ nav button{
     width: 170px;
     height: 102px;
     margin-left: -5px;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #FFFFFF;
+    background:var(--font-grey);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -126,10 +126,16 @@ nav button{
 }
 
 #sailorDayBtn{
-    background: #FFF4FD;
-    order: 1px solid #CCA6C9;
-    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-violet) ;
+    background: #CCCCCC;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
+
+#sailorDayBtn span{
+    border-bottom: 1px solid var(--font-violet);
+}
+
 
 #sailorNightBtn{
     background: #F0F0F0;

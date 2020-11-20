@@ -9,20 +9,20 @@ body{
 
 /* Subrayado Letra */
 .underline {
-    border-bottom: 1px solid var(--font-violet);
+    border-bottom: 1px solid var(--font-white);
  }   
+ 
+ /* Botones navbar */
 
- /* Botones Rosas */
-
-.pinkButton{
-    background: var(--button-color-day-pink1);
+.navButton{
+    background: var(--button-color-night-pink1);
     border: 1px solid var(--font-violet);
-    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
     text-align: center;   
  }
 
 .gradientBar{
-    background-image: var(--gradient-day);
+    background-image: var(--gradient-night);
     font-weight: bolder;
     font-size: 14px;
     padding-top: 3px;
@@ -36,8 +36,8 @@ body{
     height: 32px;
     width: 1200px ;
     background: #FFFAFE;
-    border: 1px solid var(--button-color-day-pink2);
-    box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+    border: 1px solid var(--button-color-night-blue2);
+    box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #110038;
     font-size: 14px;
     color: var(--font-violet);
     letter-spacing: 0;

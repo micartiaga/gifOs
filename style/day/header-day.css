@@ -127,7 +127,7 @@ nav button{
 
 #sailorDayBtn{
     background: #FFF4FD;
-    order: 1px solid #CCA6C9;
+    border: 1px solid #CCA6C9;
     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
 
