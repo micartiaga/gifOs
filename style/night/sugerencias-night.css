@@ -1,0 +1,59 @@
+#sugerenciaCard{
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+}
+
+.miniContainerSugerencias{
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    height: 313px;
+    width: 288px;    
+    padding: 4px ;
+}
+
+.miniBarSugerencias{
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    align-items: center;
+    margin-bottom: 2px;
+    padding-right: 4px;
+}
+
+.sugerenciaGif img{
+    height: inherit;
+    width: inherit;
+}
+
+.sugerenciaGif:hover, .seeMoreBtn:hover{
+    outline: 1px dotted #110038 ;
+    outline-offset: -3px;
+}
+
+.sugerenciaGif{
+    height: 280px;
+    width: 280px; 
+    position: relative;
+}
+
+.seeMoreBtn{
+    background-color: var(--button-color-day-blue1);
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    height: 34px;
+    width: 81px;
+    position: absolute;
+    top: 231px;
+    left: 7px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--font-white);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+}
+
+.seeMoreBtn:hover{
+    background-color: var(--button-color-day-blue2) ;
+}

@@ -1,0 +1,234 @@
+/* TOP BIENVENIDOS */
+#topHeader {
+    background-image: var(--gradient-day);
+    color: var(--font-white);
+    font-size: 12px;
+    letter-spacing: 0;
+    padding: 4px 8px;
+    height: 23px;
+    box-shadow: 0 1px 0 0 #110038;
+    letter-spacing: 0;
+}
+
+/* HEADER  */
+
+#navbarContainer{
+    /* font-size: 16px; */
+    font-weight: 400;
+    color: var(--font-violet);
+    margin-top: 39px;
+    margin-left: 91px;
+    margin-right: 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+/* LOGO GIFOS */
+
+#logo{
+    height: 64px;
+    width: 102.6px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img{
+    padding: 18px;
+}
+
+/* NAVBAR */
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BOTONES */
+
+a {
+    color: inherit;
+}
+
+nav li {
+    margin-left: 16px;
+    height: 36px;
+}
+
+
+nav button{
+    all: unset;
+    margin-left: -5px;
+    height: 34px;
+}
+
+/* BOTON CREAR GIFOS */
+
+#btnCrearGifos{
+    width: 144px;
+    padding-top: 7px;
+}
+
+#btnCrearGifos:hover, #btnCrearGifos:active{
+    background: var(--button-color-day-pink2);
+    outline: 1px dotted #110038 ;
+    outline-offset: -4px;
+}
+
+/* BOTON ELEGIR TEMA */
+#btnDropdown01{
+    width: 131px;
+}
+
+#btnDropdown02{
+    width: 36px;
+}
+
+#dropdownContainer:hover button, #dropdownContainer:active button  {
+    background: var(--button-color-day-pink2);
+    outline: 1px dotted #110038 ;
+    outline-offset: -4px;
+ }
+
+#temaDropdown{
+    visibility: hidden;
+    position: absolute;
+    width: 170px;
+    height: 102px;
+    margin-left: -5px;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: #E6E6E6;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#dropdownContainer:active + div{
+    visibility: visible;
+}
+
+#temaDropdown:hover {
+    visibility: visible;
+}
+
+#temaDropdown div{
+    width: 150px;
+    height: 36px;
+    line-height: 22px;
+    padding-top: 7px;
+    padding-left: 16px ;
+}
+
+#sailorDayBtn{
+    background: #FFF4FD;
+    order: 1px solid #CCA6C9;
+    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#sailorNightBtn{
+    background: #F0F0F0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+/* BOTON MIS GIFOS */
+
+#btnMisGifos{
+    height: 36px;
+    width: 95px;
+    padding-top: 7px;
+    padding-left: 1px;
+}
+
+#btnMisGifos:active, #btnMisGifos:hover{
+   border: 1px dotted #110038 ;
+   height: 32px;
+   padding-top: 4px;
+   padding-left: 0;
+}
+
+/* BUSCADOR */
+
+#buscarContainer{
+    margin-top: 16px;
+    height: 99px; 
+    width: 1200px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    padding: 3px;
+}
+ 
+
+#buscarContainer form{
+        padding: 12px 15px ;
+        display: flex;
+        justify-content: space-between;
+        color: var(--font-grey) ;
+        align-items: center;
+}
+
+/* BARRA BUSCADOR TEXTO */
+
+#textContainer {
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    padding: 13px 16px;
+    line-height: 22px;
+    width: 100%;
+    border: none;
+    appearance: none;
+    outline: none;
+}
+
+#textContainer::placeholder{
+    color: var(--font-grey);
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+
+#textContainer:focus {
+    outline: none;
+    color: var(--font-violet);
+}
+
+
+
+/* BONTON BUSCAR */
+
+
+#buscarBtn{
+    margin-left: 8px ;
+    background: #E6E6E6;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    width: 102px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 14px;
+    line-height: 18px;
+    font-size: 16px;
+}
+
+
+#lupita{
+    background-image: url(../../assets/lupa_inactive.svg);
+    height: 16px;
+    width: 16px;
+}
+
+

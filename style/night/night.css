@@ -1,9 +1,8 @@
-@import "./header-day.css";
-@import "./sugerencias-day.css";
+@import "./header-night.css";
+@import "./sugerencias-night.css";
 
-/* FONDO */
 body{
-   background-color: var(--font-white);
+   background-color: var(--font-violet);
 }
 
 /* CLASSES */
