@@ -146,7 +146,10 @@ nav button{
     padding-left: 1px;
 }
 
-#btnMisGifos:active, #btnMisGifos:hover{
+#btnMisGifos:active{
+   border: none; 
+}
+#btnMisGifos:hover{
    border: 1px dotted #110038 ;
    height: 32px;
    padding-top: 4px;

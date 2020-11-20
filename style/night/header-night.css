@@ -138,9 +138,9 @@ nav button{
 
 
 #sailorNightBtn{
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    background: var(--buton-color-night-blue2);
+    border: 1px solid rgba(51,53,143,0.20);
+    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
 
 /* BOTON MIS GIFOS */
@@ -152,8 +152,16 @@ nav button{
     padding-left: 1px;
 }
 
-#btnMisGifos:active, #btnMisGifos:hover{
-   border: 1px dotted #110038 ;
+#btnMisGifos:active {
+    border: none ;
+}
+
+#btnMisGifos:active span, #btnMisGifos:hover span{
+    border-bottom: 1px solid var(--font-white);
+}
+
+#btnMisGifos:hover{
+   border: 1px dotted var(--font-white) ;
    height: 32px;
    padding-top: 4px;
    padding-left: 0;
@@ -168,8 +176,8 @@ nav button{
     margin-left: 100px;
     display: flex;
     flex-direction: column;
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: var(--font-grey);
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
     padding: 3px;
 }
  
@@ -216,7 +224,7 @@ nav button{
 
 #buscarBtn{
     margin-left: 8px ;
-    background: #E6E6E6;
+    background: var(--font-grey);
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
     width: 102px;
@@ -228,11 +236,12 @@ nav button{
     padding-right: 14px;
     line-height: 18px;
     font-size: 16px;
+    color: #8f8f8f ;
 }
 
 
 #lupita{
-    background-image: url(../../assets/lupa_inactive.svg);
+    background-image: url(../../assets/Combined\ Shape.svg);
     height: 16px;
     width: 16px;
 }

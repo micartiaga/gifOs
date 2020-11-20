@@ -8,7 +8,7 @@ body{
 /* CLASSES */
 
 /* Subrayado Letra */
-.underline {
+.underlineNight {
     border-bottom: 1px solid var(--font-white);
  }   
  
