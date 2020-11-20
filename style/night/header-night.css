@@ -125,6 +125,10 @@ nav button{
     padding-left: 16px ;
 }
 
+#dropdownArrow{
+    transform: rotate(-270deg);  
+}
+
 #sailorDayBtn{
     color: var(--font-violet) ;
     background: #CCCCCC;
