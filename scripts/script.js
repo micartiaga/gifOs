@@ -1,8 +1,9 @@
-import Giphy from "./giphy";
+import Giphy from "./giphy.js";
 
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const url = "https://api.giphy.com/v1";
 
+console.log("holis");
 
 // CAMBIAR TEMA
 
@@ -45,55 +46,57 @@ nightBtn.addEventListener("click", () => {
 // HOY TE SUGERIMOS
 
 async function dailySuggested() {
-    let count2 = 0;
-    debugger;
+    
 
     try {
-        if (count2 < 5) {
+// ALMACENAR RANDOMNUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
+        for (let i=0; i<4; i++) {
             // FETCHING GIF
             let giphy = new Giphy(url, key);
-            let SuggestedGif = await giphy.gifDailySuggested();
-            let data = SuggestedGif.data;
-            let randomNumber = Math.floor(Math.random() * data.lenght);
-            let urlGif = data.randomNumber.gif.image.downsized_medium.url;
-            let tag = data.randomNumber.name_encoded;
-
-
+            let suggestedGif = await giphy.gifDailySuggested();
+            let data = suggestedGif.data;
+            let randomNumber = Math.floor(Math.random() *27);
+            let urlGif = data[randomNumber-i].gif.images.downsized_medium.url;
+            let tag = data[randomNumber-i].name_encoded;
+            
+            
             // CREANDO DIVS
-
+            
             let tarjeta = document.createElement("div");
             tarjeta.classList.add("miniContainerSugerencias");
-
+            
             // barra
-
+            
             let tagBar = document.createElement("div");
             tagBar.classList.add("miniBarSugerencias");
             tagBar.classList.add("gradientBar");
             let hashtag = document.createElement("p");
             hashtag.innerText = "#" + tag;
             let close = document.createElement("img");
-            close.setAttribute.src = "./asstes/button3.svg";
+            close.setAttribute("src", "./assets/button3.svg");
             tagBar.appendChild(hashtag);
             tagBar.appendChild(close);
             tarjeta.appendChild(tagBar);
-
+            
             // gif
             let gifContainer = document.createElement("div");
             gifContainer.classList.add("sugerenciaGif");
             let gif = document.createElement("img");
-            gif.setAttribute.src(urlGif);
+            gif.setAttribute ("src",urlGif);
             let seeMore = document.createElement("button");
             seeMore.innerText = "Ver más...";
             seeMore.classList.add("seeMoreBtn");
             gifContainer.appendChild(gif);
             gifContainer.appendChild(seeMore);
             tarjeta.appendChild(gifContainer);
-
-            let tarjetaContainer=document.getElementById("sugerenciaCard");
+            
+            
+            let tarjetaContainer = document.getElementById("sugerenciaCard");
+            console.log(tarjetaContainer);
             tarjetaContainer.appendChild(tarjeta);
 
             // SUMO 1 PARA LLEGAR A 4
-            count++
+            
         }
     }
     catch (err) {

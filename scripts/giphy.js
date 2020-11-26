@@ -4,11 +4,10 @@ class Giphy {
         this.apiKey = "api_key=" + key;
     }
     // SUGERIDOS
-    async gifDailySuggested (){ 
-       let fetch= await fetch(this.url +'/gifs/categories?'+ this.apiKey);
-
-       let dailySuggested = await res.json();
-
+    async gifDailySuggested() {
+        let res = await fetch(this.url + '/gifs/categories?' + this.apiKey);
+        let dailySuggested = await res.json();
+        console.log(dailySuggested);
         return dailySuggested;
     }
 
