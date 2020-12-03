@@ -93,8 +93,6 @@ async function dailySuggested() {
             let tarjetaContainer = document.getElementById("sugerenciaCard");
             console.log(tarjetaContainer);
             tarjetaContainer.appendChild(tarjeta);
-
-            // SUMO 1 PARA LLEGAR A 4
             
         }
     }
@@ -104,3 +102,7 @@ async function dailySuggested() {
 }
 
 dailySuggested();
+
+// TRENDINGS
+
+
