@@ -47,7 +47,6 @@ nightBtn.addEventListener("click", () => {
 
 async function dailySuggested() {
     
-
     try {
 // ALMACENAR RANDOMNUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
         for (let i=0; i<4; i++) {
