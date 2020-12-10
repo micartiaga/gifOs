@@ -48,7 +48,7 @@ nightBtn.addEventListener("click", () => {
 async function dailySuggested() {
     
     try {
-// ALMACENAR RANDOMNUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
+// ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
         for (let i=0; i<4; i++) {
             // FETCHING GIF
             let giphy = new Giphy(url, key);
@@ -91,7 +91,7 @@ async function dailySuggested() {
             
             
             let tarjetaContainer = document.getElementById("sugerenciaCard");
-            console.log(tarjetaContainer);
+            
             tarjetaContainer.appendChild(tarjeta);
             
         }
@@ -106,3 +106,52 @@ dailySuggested();
 // TRENDINGS
 
 
+
+async function trending(offset) {
+    try {
+        // ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
+        
+        for (let i=0; i<25; i++) {
+            // FETCHING GIF
+            let giphy = new Giphy(url, key);
+            let trendingGif = await giphy.gifTrendings(offset);
+            let data = trendingGif.data;
+            let urlGif = data[i].gif.images.downsized_medium.url;
+            let tag = data[i].name_encoded;
+            console.log(tag);
+            let height= data[i].gif.images.downsized_medium.height;
+            let width= data[i].gif.images.downsized_medium.width;
+            
+            
+            // CREANDO DIVS
+            
+            let container = document.getElementById("gifTrendings");
+            let miniContainer= document.createElement("div");
+
+            let gif = document.createElement("img");
+            gif.setAttribute ("src",urlGif);
+            
+            miniContainer.appendChild(gif);
+            container.appendChild(miniContainer);
+
+            if (width>height){
+                gif.style.width="592px";    
+            }else{
+                gif.style.width="288px"; 
+            };
+
+            
+
+            
+            
+            
+            
+            
+        }
+    }
+    catch (err) {
+        return err;
+    }
+}
+
+trending(0);
