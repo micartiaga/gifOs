@@ -127,6 +127,7 @@ async function trending(offset) {
             
             let container = document.getElementById("gifTrendings");
             let miniContainer= document.createElement("div");
+            miniContainer.classList.add("trendings");
 
             let gif = document.createElement("img");
             gif.setAttribute ("src",urlGif);
@@ -135,9 +136,11 @@ async function trending(offset) {
             container.appendChild(miniContainer);
 
             if (width>height){
-                gif.style.width="592px";    
+                miniContainer.style.width="598px";   
+                gif.style.width="592px"; 
             }else{
-                gif.style.width="288px"; 
+                miniContainer.style.width="294px"; 
+                gif.style.width="288px"
             };
 
             

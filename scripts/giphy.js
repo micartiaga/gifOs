@@ -15,7 +15,6 @@ class Giphy {
     async gifTrendings(offset){
         let res = await fetch(this.url + '/gifs/categories?' + this.apiKey + "&limit=25&offset="+ offset);
         let trendings = await res.json();
-       
         return trendings;
 
     }
