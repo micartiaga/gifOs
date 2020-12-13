@@ -1,23 +1,2 @@
-#gifTrendings{
-    display: flex ;
-    width: 1200px;
-    justify-content: space-between;
-    flex-wrap: wrap; 
-    
-
-}
-
-.trendings{
-    border: 1px solid red ;
-    width: 294px;
-    height: 304px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    margin-bottom: 10px ;
-}
 
 
-.trendings img{
-    height: 298px;  
-}

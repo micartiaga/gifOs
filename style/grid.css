@@ -1,0 +1,55 @@
+.gridContainer{
+    width: 1200px;
+    display: grid;
+    grid: auto-flow dense / auto auto auto auto;
+    gap: 6px;
+   
+}
+
+.gridBar{
+  position: absolute;
+  bottom: 0px;
+  width: inherit;
+}
+
+.gridTagsContainer{
+  position: absolute; 
+  height: inherit;
+  margin: 4px;
+  padding-bottom: 0px;
+  width: inherit;
+ 
+}
+
+.gridMiniContainer{
+  display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.gridMiniContainerLarge{
+  width: 598px;
+  height: 304px;
+  grid-column: auto / span 2;
+
+}
+
+.gridGifLarge{
+  width: 592px;
+  height: 298px;
+}
+
+.gridMiniContainerSmall{
+  width: 294px;
+  height: 304px;
+  grid-column: auto span 1;
+}
+
+.gridGifSmall{
+  width: 288px;
+  height: 298px;
+}
+
+
+
+  

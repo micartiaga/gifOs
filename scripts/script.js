@@ -116,11 +116,33 @@ async function trending(offset) {
             let giphy = new Giphy(url, key);
             let trendingGif = await giphy.gifTrendings(offset);
             let data = trendingGif.data;
+            console.log(data);
             let urlGif = data[i].gif.images.downsized_medium.url;
-            let tag = data[i].name_encoded;
-            console.log(tag);
+
+
             let height= data[i].gif.images.downsized_medium.height;
             let width= data[i].gif.images.downsized_medium.width;
+            
+            //CREANDO TAG
+            
+            let originalTitle = data[i].gif.title;
+            console.log(originalTitle);
+            const removeBy= " by ";
+            const removeGif= " GIF by ";
+            let title = originalTitle.replace(removeGif, " ");
+            let title2 = title.replace(removeBy, "");
+            let splitTitle = title2.split(" ");
+            let tags = splitTitle.join(" #");
+
+            
+
+            let tagBar = document.createElement("div");
+            let tagBarContainer= document.createElement("div");
+            tagBar.classList.add("gradientBar");
+            tagBar.classList.add("gridBar");
+            tagBarContainer.classList.add("gridTagsContainer");
+            tagBar.innerText= "#" + tags;
+            
             
             
             // CREANDO DIVS
@@ -128,27 +150,30 @@ async function trending(offset) {
             let container = document.getElementById("gifTrendings");
             let miniContainer= document.createElement("div");
             miniContainer.classList.add("trendings");
-
+            
             let gif = document.createElement("img");
             gif.setAttribute ("src",urlGif);
             
             miniContainer.appendChild(gif);
+            
             container.appendChild(miniContainer);
-
-            if (width>height){
-                miniContainer.style.width="598px";   
-                gif.style.width="592px"; 
+            tagBarContainer.appendChild(tagBar);
+            miniContainer.appendChild(tagBarContainer);
+            
+            if (width/height >1.40){
+                // GIFS ANCHOS
+                miniContainer.classList.add("gridMiniContainerLarge"); 
+                miniContainer.classList.add("gridMiniContainer"); 
+                gif.classList.add("gridGifLarge");
+                
+                
             }else{
-                miniContainer.style.width="294px"; 
-                gif.style.width="288px"
+                // GIFS CHICOS
+                miniContainer.classList.add("gridMiniContainerSmall"); 
+                miniContainer.classList.add("gridMiniContainer"); 
+                gif.classList.add("gridGifSmall");
+            
             };
-
-            
-
-            
-            
-            
-            
             
         }
     }
