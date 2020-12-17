@@ -33,7 +33,7 @@ dayBtn.addEventListener("click", () => {
     logoGifos.src = "./assets/gifOF_logo.png";
     let dropdownArrow = document.getElementById("dropdownArrow");
     dropdownArrow.src = "./assets/dropdown.svg";
-})
+});
 
 nightBtn.addEventListener("click", () => {
     styleSheet.href = "style/night/night.css";
@@ -46,26 +46,26 @@ nightBtn.addEventListener("click", () => {
 // HOY TE SUGERIMOS
 
 async function dailySuggested() {
-    
+
     try {
-// ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
-        for (let i=0; i<4; i++) {
+        // ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI
+        for (let i = 0; i < 4; i++) {
             // FETCHING GIF
             let giphy = new Giphy(url, key);
             let suggestedGif = await giphy.gifDailySuggested();
             let data = suggestedGif.data;
-            let randomNumber = Math.floor(Math.random() *27);
-            let urlGif = data[randomNumber-i].gif.images.downsized_medium.url;
-            let tag = data[randomNumber-i].name_encoded;
-            
-            
+            let randomNumber = Math.floor(Math.random() * 27);
+            let urlGif = data[randomNumber - i].gif.images.downsized_medium.url;
+            let tag = data[randomNumber - i].name_encoded;
+
+
             // CREANDO DIVS
-            
+
             let tarjeta = document.createElement("div");
             tarjeta.classList.add("miniContainerSugerencias");
-            
+
             // barra
-            
+
             let tagBar = document.createElement("div");
             tagBar.classList.add("miniBarSugerencias");
             tagBar.classList.add("gradientBar");
@@ -76,24 +76,24 @@ async function dailySuggested() {
             tagBar.appendChild(hashtag);
             tagBar.appendChild(close);
             tarjeta.appendChild(tagBar);
-            
+
             // gif
             let gifContainer = document.createElement("div");
             gifContainer.classList.add("sugerenciaGif");
             let gif = document.createElement("img");
-            gif.setAttribute ("src",urlGif);
+            gif.setAttribute("src", urlGif);
             let seeMore = document.createElement("button");
             seeMore.innerText = "Ver más...";
             seeMore.classList.add("seeMoreBtn");
             gifContainer.appendChild(gif);
             gifContainer.appendChild(seeMore);
             tarjeta.appendChild(gifContainer);
-            
-            
+
+
             let tarjetaContainer = document.getElementById("sugerenciaCard");
-            
+
             tarjetaContainer.appendChild(tarjeta);
-            
+
         }
     }
     catch (err) {
@@ -109,9 +109,9 @@ dailySuggested();
 
 async function trending(offset) {
     try {
-        // ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI 
-        
-        for (let i=0; i<25; i++) {
+        // ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI
+
+        for (let i = 0; i < 25; i++) {
             // FETCHING GIF
             let giphy = new Giphy(url, key);
             let trendingGif = await giphy.gifTrendings(offset);
@@ -120,61 +120,75 @@ async function trending(offset) {
             let urlGif = data[i].gif.images.downsized_medium.url;
 
 
-            let height= data[i].gif.images.downsized_medium.height;
-            let width= data[i].gif.images.downsized_medium.width;
-            
+            let height = data[i].gif.images.downsized_medium.height;
+            let width = data[i].gif.images.downsized_medium.width;
+
             //CREANDO TAG
-            
+
             let originalTitle = data[i].gif.title;
             console.log(originalTitle);
-            const removeBy= " by ";
-            const removeGif= " GIF by ";
+            const removeBy = " by ";
+            const removeGif = " GIF by ";
             let title = originalTitle.replace(removeGif, " ");
             let title2 = title.replace(removeBy, "");
             let splitTitle = title2.split(" ");
             let tags = splitTitle.join(" #");
 
-            
 
-            let tagBar = document.createElement("div");
-            let tagBarContainer= document.createElement("div");
+
+            let tagBar = document.createElement("p");
+            let tagBarContainer = document.createElement("div");
             tagBar.classList.add("gradientBar");
             tagBar.classList.add("gridBar");
             tagBarContainer.classList.add("gridTagsContainer");
-            tagBar.innerText= "#" + tags;
-            
-            
-            
+            tagBar.innerText = "#" + tags;
+
+
             // CREANDO DIVS
-            
+
             let container = document.getElementById("gifTrendings");
-            let miniContainer= document.createElement("div");
+            let miniContainer = document.createElement("div");
             miniContainer.classList.add("trendings");
-            
+
             let gif = document.createElement("img");
-            gif.setAttribute ("src",urlGif);
-            
+            gif.setAttribute("src", urlGif);
+
             miniContainer.appendChild(gif);
-            
-            container.appendChild(miniContainer);
+
             tagBarContainer.appendChild(tagBar);
             miniContainer.appendChild(tagBarContainer);
-            
-            if (width/height >1.40){
+            container.appendChild(miniContainer);
+            tagBar.style.visibility = "hidden";
+
+            if (width / height > 1.40) {
                 // GIFS ANCHOS
-                miniContainer.classList.add("gridMiniContainerLarge"); 
-                miniContainer.classList.add("gridMiniContainer"); 
+                miniContainer.classList.add("gridMiniContainerLarge");
+                miniContainer.classList.add("gridMiniContainer");
                 gif.classList.add("gridGifLarge");
-                
-                
-            }else{
+                tagBarContainer.style.width = "592px";
+
+            } else {
                 // GIFS CHICOS
-                miniContainer.classList.add("gridMiniContainerSmall"); 
-                miniContainer.classList.add("gridMiniContainer"); 
+                miniContainer.classList.add("gridMiniContainerSmall");
+                miniContainer.classList.add("gridMiniContainer");
                 gif.classList.add("gridGifSmall");
-            
+                tagBarContainer.style.width = "288px";
             };
-            
+
+            // HOVER DEL TAG 
+
+            tagBarContainer.addEventListener("mouseover", () => {
+                tagBar.style.visibility = "visible";
+                miniContainer.classList.add("miniContainerHover");
+                tagBarContainer.classList.add("tagBarContainerHover");
+
+            });
+            tagBarContainer.addEventListener("mouseout", () => {
+                tagBar.style.visibility = "hidden";
+                miniContainer.classList.remove("miniContainerHover");
+                tagBarContainer.classList.remove("tagBarContainerHover");
+            });
+
         }
     }
     catch (err) {

@@ -10,21 +10,39 @@
   position: absolute;
   bottom: 0px;
   width: inherit;
+ z-index: -1;
+ margin-bottom: 4px;
+}
+
+#gifTrendings p{
+  padding-left: 10px;
 }
 
 .gridTagsContainer{
   position: absolute; 
   height: inherit;
-  margin: 4px;
   padding-bottom: 0px;
-  width: inherit;
- 
-}
+  z-index: 1;
+  }
+
+
 
 .gridMiniContainer{
   display: flex;
-    justify-content: center;
-    align-items: center;  
+  justify-content: center;
+  align-items: center;  
+  
+}
+
+.miniContainerHover{
+  background: #E6E6E6;
+  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  
+}
+
+.tagBarContainerHover{
+  outline: 1px dotted #110038 ;
+  outline-offset: -4px;
 }
 
 .gridMiniContainerLarge{
