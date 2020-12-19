@@ -21,10 +21,11 @@ class Giphy {
 
     // SEARCH
 
-    // async gifSearch(term, offset){
-    //     let res = await fetch ()
+     async gifSearch(term, offset){
+         let res = await fetch (this.url + 'gifs/search?' + this.apiKey + '&q='+ term + "&limit=25&offset=" + offset);
 
-    // }
+
+     }
 
 };
 
