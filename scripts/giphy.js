@@ -13,11 +13,18 @@ class Giphy {
 
     //TRENDINGS
     async gifTrendings(offset){
-        let res = await fetch(this.url + '/gifs/categories?' + this.apiKey + "&limit=25&offset="+ offset);
+        let res = await fetch(this.url + '/gifs/trending?' + this.apiKey + "&limit=25&offset="+ offset);
         let trendings = await res.json();
         return trendings;
-
+    
     }
+
+    // SEARCH
+
+    // async gifSearch(term, offset){
+    //     let res = await fetch ()
+
+    // }
 
 };
 

@@ -116,26 +116,27 @@ async function trending(offset) {
             let giphy = new Giphy(url, key);
             let trendingGif = await giphy.gifTrendings(offset);
             let data = trendingGif.data;
-            console.log(data);
-            let urlGif = data[i].gif.images.downsized_medium.url;
-
-
-            let height = data[i].gif.images.downsized_medium.height;
-            let width = data[i].gif.images.downsized_medium.width;
+            let urlGif = data[i].images.downsized_medium.url;
+            
+            let height = data[i].images.downsized_medium.height;
+            let width = data[i].images.downsized_medium.width;
+            
 
             //CREANDO TAG
-
-            let originalTitle = data[i].gif.title;
-            console.log(originalTitle);
-            const removeBy = " by ";
-            const removeGif = " GIF by ";
-            let title = originalTitle.replace(removeGif, " ");
-            let title2 = title.replace(removeBy, "");
-            let splitTitle = title2.split(" ");
-            let tags = splitTitle.join(" #");
-
-
-
+            let originalTitle = data[i].title;
+          
+            // Saco al autor
+            let splitTitle1 = originalTitle.split("by");
+            const removeGif = " GIF ";
+            let title1 = splitTitle1[0].replace(removeGif, "");
+            let title2= title1.replace(" GIF","");
+            
+            //   Separando palabras
+            let splitTitle2 = title2.split(" ");
+            
+            // Agrego hashtag
+            let tags = splitTitle2.join(" #");
+    
             let tagBar = document.createElement("p");
             let tagBarContainer = document.createElement("div");
             tagBar.classList.add("gradientBar");
@@ -143,9 +144,7 @@ async function trending(offset) {
             tagBarContainer.classList.add("gridTagsContainer");
             tagBar.innerText = "#" + tags;
 
-
             // CREANDO DIVS
-
             let container = document.getElementById("gifTrendings");
             let miniContainer = document.createElement("div");
             miniContainer.classList.add("trendings");
