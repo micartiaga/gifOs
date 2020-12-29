@@ -207,32 +207,36 @@ const searchBtn = document.getElementById('buscarBtn');
 
 // seleccionar input
 const searchInput = document.getElementById('textContainer');
-const searchWord = searchInput.value;
 
+// seleccionar search suggestions
+const searchSuggestions= document.getElementById('searchSuggestedContainer');
 
-
-
-// habilitar boton cuando el textarea del input este lleno  NO ME FUNCA EL TIPO DE EVENT LISTENER 
+// habilitar boton cuando el textarea del input este lleno  
 
 
 searchInput.addEventListener("input", () => {
-    console.log(searchWord);
+     
+     let searchWord= searchInput.value;
+     let lupita=document.getElementById("lupita");
 
-    if (searchWord !== "") {
+     if (searchWord !== "") {
         searchBtn.disabled = false;
-        searchBtn.style.background = "red";
-    }
-});
+        searchBtn.classList.replace("buscarBtnInactive", "buscarBtnActive");
+        lupita.classList.replace("lupitaInactive", "lupitaActive");
+        searchSuggestions.style.visibility= "visible";
+        
+    }else{
+         searchBtn.disabled = true;
+         searchBtn.classList.replace("buscarBtnActive", "buscarBtnInactive");
+         lupita.classList.replace("lupitaActive","lupitaInactive" );
+     }
+ });
 
 
 
 
 
 
-
-// deshabilitar si esta vacio
-
-// hacer una funcion con eso y correrla
 
 // si esta vacio nada, si esta lleno hacer correr la function 2
 
@@ -244,28 +248,6 @@ searchInput.addEventListener("input", () => {
 
 // con la async adentro con el fetch
 
-
-
-
-
-
-
-
-
-
-
-// searchBtn.addEventListener("click", () => {
-
-
-//     console.log(searchWord);
-
-// if (searchWord == "null" || searchWord == " "){
-//     console.log("es null");
-
-// }else {
-//     console.log("Ta lleno");
-// }
-// });
 
 
 // function searchResults(){
