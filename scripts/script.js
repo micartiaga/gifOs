@@ -208,14 +208,15 @@ const searchBtn = document.getElementById('buscarBtn');
 // seleccionar input
 const searchInput = document.getElementById('textContainer');
 
+
 // seleccionar search suggestions
 const searchSuggestions= document.getElementById('searchSuggestedContainer');
 
-// habilitar boton cuando el textarea del input este lleno  
+// habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
 
 
 searchInput.addEventListener("input", () => {
-     
+
      let searchWord= searchInput.value;
      let lupita=document.getElementById("lupita");
 
@@ -224,21 +225,19 @@ searchInput.addEventListener("input", () => {
         searchBtn.classList.replace("buscarBtnInactive", "buscarBtnActive");
         lupita.classList.replace("lupitaInactive", "lupitaActive");
         searchSuggestions.style.visibility= "visible";
-        
+
     }else{
          searchBtn.disabled = true;
          searchBtn.classList.replace("buscarBtnActive", "buscarBtnInactive");
          lupita.classList.replace("lupitaActive","lupitaInactive" );
+         searchSuggestions.style.visibility= "hidden";
      }
  });
 
+ searchBtn.addEventListener("click", ()=>{
 
+ })
 
-
-
-
-
-// si esta vacio nada, si esta lleno hacer correr la function 2
 
 // display none a trending y suggested
 
