@@ -117,26 +117,26 @@ async function trending(offset) {
             let trendingGif = await giphy.gifTrendings(offset);
             let data = trendingGif.data;
             let urlGif = data[i].images.downsized_medium.url;
-            
+
             let height = data[i].images.downsized_medium.height;
             let width = data[i].images.downsized_medium.width;
-            
+
 
             //CREANDO TAG
             let originalTitle = data[i].title;
-          
+
             // Saco al autor
             let splitTitle1 = originalTitle.split("by");
             const removeGif = " GIF ";
             let title1 = splitTitle1[0].replace(removeGif, "");
-            let title2= title1.replace(" GIF","");
-            
+            let title2 = title1.replace(" GIF", "");
+
             //   Separando palabras
             let splitTitle2 = title2.split(" ");
-            
+
             // Agrego hashtag
             let tags = splitTitle2.join(" #");
-    
+
             let tagBar = document.createElement("p");
             let tagBarContainer = document.createElement("div");
             tagBar.classList.add("gradientBar");
@@ -174,7 +174,7 @@ async function trending(offset) {
                 tagBarContainer.style.width = "288px";
             };
 
-            // HOVER DEL TAG 
+            // HOVER DEL TAG
 
             tagBarContainer.addEventListener("mouseover", () => {
                 tagBar.style.visibility = "visible";
@@ -196,3 +196,87 @@ async function trending(offset) {
 }
 
 trending(0);
+
+
+
+
+// SEARCH
+
+// Seleccionar boton
+const searchBtn = document.getElementById('buscarBtn');
+
+// seleccionar input
+const searchInput = document.getElementById('textContainer');
+const searchWord = searchInput.value;
+
+
+
+
+// habilitar boton cuando el textarea del input este lleno  NO ME FUNCA EL TIPO DE EVENT LISTENER 
+
+
+searchInput.addEventListener("input", () => {
+    console.log(searchWord);
+
+    if (searchWord !== "") {
+        searchBtn.disabled = false;
+        searchBtn.style.background = "red";
+    }
+});
+
+
+
+
+
+
+
+// deshabilitar si esta vacio
+
+// hacer una funcion con eso y correrla
+
+// si esta vacio nada, si esta lleno hacer correr la function 2
+
+// display none a trending y suggested
+
+// visible al nuevo whitebar y rellenarlo,
+
+// crear nuevo search con gif y el fetch
+
+// con la async adentro con el fetch
+
+
+
+
+
+
+
+
+
+
+
+// searchBtn.addEventListener("click", () => {
+
+
+//     console.log(searchWord);
+
+// if (searchWord == "null" || searchWord == " "){
+//     console.log("es null");
+
+// }else {
+//     console.log("Ta lleno");
+// }
+// });
+
+
+// function searchResults(){
+
+//     // Escondiendo suggested
+//     let sugerencias= document.getElementById('sugerenciasContainer');
+//     sugerencias.style.display="none";
+
+//     // Escondiendo trendings
+
+//     let tendencias= document.getElementById('tendenciasContainer');
+//     tendencias.style.display="none";
+
+// }
