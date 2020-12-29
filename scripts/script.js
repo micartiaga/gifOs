@@ -224,7 +224,9 @@ searchInput.addEventListener("input", () => {
         searchBtn.disabled = false;
         searchBtn.classList.replace("buscarBtnInactive", "buscarBtnActive");
         lupita.classList.replace("lupitaInactive", "lupitaActive");
+        // AGREGAR RELLENO CON SUGGESTED Y CREAR EN GIPHY LA FUNC ESA
         searchSuggestions.style.visibility= "visible";
+        
 
     }else{
          searchBtn.disabled = true;
@@ -235,11 +237,19 @@ searchInput.addEventListener("input", () => {
  });
 
  searchBtn.addEventListener("click", ()=>{
+// HACER QUE TRENDING Y SUGGESTED SE VAYAN
+// HACER VISIBLE WHITE CON PALABRA BUSCADA
+// RELLENAR LA GRID CON LAS CLASES
+// VER COMO BORRAR PARA VOLVER A CARGAR CON UNA NUEVA PALABRA
+
+// AGREGARLE EL HOME  PARA CARGAR DE NUEVO AL logo
+// HACER QUE ESTA FUNC SE HAGA CON EL ENTER EN EL INPUT, CON EL VER MAS Y CON EL CLICK EN BUSCAR
 
  })
 
 
 // display none a trending y suggested
+
 
 // visible al nuevo whitebar y rellenarlo,
 
