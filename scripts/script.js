@@ -218,7 +218,13 @@ searchInput.addEventListener("input", () => {
         searchBtn.disabled = false;
         searchBtn.classList.replace("buscarBtnInactive", "buscarBtnActive");
         lupita.classList.replace("lupitaInactive", "lupitaActive");
-        // AGREGAR RELLENO CON SUGGESTED Y CREAR EN GIPHY LA FUNC ESA
+        // sugerencias de busqueda 
+
+        
+        for (let i = 0; i< 4; i++) {
+            let suggestedWord= document.createElement('li');
+
+        }
         searchSuggestions.style.visibility = "visible";
 
     } else {
@@ -357,12 +363,12 @@ async function searchResultsGrid(term, offset) {
 }
 
 searchBtn.addEventListener("click", showSearchResults);
-searchInput.addEventListener("keyup", event => {  
-     if (window.event.keyCode === 13) {
+searchInput.addEventListener("keyup", event => {
+    if (window.event.keyCode === 13) {
         event.preventDefault();
         searchBtn.click();
-     }
- });
+    }
+});
 
 
 // HACER QUE ESTA FUNC SE HAGA CON EL ENTER EN EL INPUT, CON EL VER MAS Y CON EL CLICK EN BUSCAR
