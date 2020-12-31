@@ -147,7 +147,7 @@ async function trending(offset) {
             // CREANDO DIVS
             let container = document.getElementById("gifTrendings");
             let miniContainer = document.createElement("div");
-            miniContainer.classList.add("trendings");
+            
 
             let gif = document.createElement("img");
             gif.setAttribute("src", urlGif);
@@ -214,7 +214,6 @@ const searchSuggestions= document.getElementById('searchSuggestedContainer');
 
 // habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
 
-
 searchInput.addEventListener("input", () => {
 
      let searchWord= searchInput.value;
@@ -226,7 +225,6 @@ searchInput.addEventListener("input", () => {
         lupita.classList.replace("lupitaInactive", "lupitaActive");
         // AGREGAR RELLENO CON SUGGESTED Y CREAR EN GIPHY LA FUNC ESA
         searchSuggestions.style.visibility= "visible";
-        
 
     }else{
          searchBtn.disabled = true;
@@ -236,38 +234,149 @@ searchInput.addEventListener("input", () => {
      }
  });
 
- searchBtn.addEventListener("click", ()=>{
-// HACER QUE TRENDING Y SUGGESTED SE VAYAN
-// HACER VISIBLE WHITE CON PALABRA BUSCADA
-// RELLENAR LA GRID CON LAS CLASES
-// VER COMO BORRAR PARA VOLVER A CARGAR CON UNA NUEVA PALABRA
+ function showSearchResults() {
 
-// AGREGARLE EL HOME  PARA CARGAR DE NUEVO AL logo
+     let searchWord= searchInput.value;     
+
+    // Escondiendo suggested
+     let sugerencias= document.getElementById('sugerenciasContainer');
+     sugerencias.style.display="none";
+
+   // Escondiendo trendings
+
+    let tendencias= document.getElementById('tendenciasContainer');
+    tendencias.style.display="none";
+
+    // Escondiendo sugerencias de busqueda
+
+    searchSuggestions.style.visibility= "hidden";
+
+    // HACER VISIBLE WHITE CON PALABRA BUSCADA
+
+    let busqueda= document.getElementById('busquedaContainer');
+    busqueda.style.display= "block";
+    let searchWhiteBarTitle= document.getElementById('searchWhiteBarTitle');
+    searchWhiteBarTitle.innerText=searchWord;
+
+    //VACIO CONTENIDO ANTERIOR
+
+    let gridContainer= document.getElementById('gifSearch');
+    gridContainer.innerHTML="";
+
+
+    // RELLENAR LA GRID CON LA NUEVA BUSQUEDA
+
+    let offset= 0;
+
+    searchResultsGrid(searchWord, offset);
+
+    
+};
+
+async function searchResultsGrid(term, offset){
+    try {
+
+        let giphy = new Giphy(url, key);
+        let searchedGif = await giphy.gifSearch(term, offset);
+        let data = searchedGif.data;
+
+        for (let i = 0; i < 25; i++) {
+            // FETCHING GIF
+            let urlGif = data[i].images.downsized_medium.url;
+            let height = data[i].images.downsized_medium.height;
+            let width = data[i].images.downsized_medium.width;
+            
+            //CREANDO TAG
+            let originalTitle = data[i].title;
+            
+            // Saco al autor
+            let splitTitle1 = originalTitle.split("by");
+            const removeGif = " GIF ";
+            let title1 = splitTitle1[0].replace(removeGif, "");
+            let title2 = title1.replace(" GIF", "");
+            
+            //   Separando palabras
+            let splitTitle2 = title2.split(" ");
+            
+            // Agrego hashtag
+            let tags = splitTitle2.join(" #");
+            
+            let tagBar = document.createElement("p");
+            let tagBarContainer = document.createElement("div");
+            tagBar.classList.add("gradientBar");
+            tagBar.classList.add("gridBar");
+            tagBarContainer.classList.add("gridTagsContainer");
+            tagBar.innerText = "#" + tags;
+            
+            
+            // CREANDO DIVS
+
+            let container = document.getElementById("gifSearch");
+            let miniContainer = document.createElement("div");
+            
+
+             let gif = document.createElement("img");
+             gif.setAttribute("src", urlGif);
+
+             miniContainer.appendChild(gif);
+
+             tagBarContainer.appendChild(tagBar);
+             miniContainer.appendChild(tagBarContainer);
+             container.appendChild(miniContainer);
+            tagBar.style.visibility = "hidden";
+
+             if (width / height > 1.40) {
+                // GIFS ANCHOS
+                miniContainer.classList.add("gridMiniContainerLarge");
+                 miniContainer.classList.add("gridMiniContainer");
+                 gif.classList.add("gridGifLarge");
+                 tagBarContainer.style.width = "592px";
+
+             } else {
+                 // GIFS CHICOS
+                 miniContainer.classList.add("gridMiniContainerSmall");
+                 miniContainer.classList.add("gridMiniContainer");
+                gif.classList.add("gridGifSmall");
+                tagBarContainer.style.width = "288px";
+             };
+
+             // HOVER DEL TAG
+
+             tagBarContainer.addEventListener("mouseover", () => {
+                 tagBar.style.visibility = "visible";
+                 miniContainer.classList.add("miniContainerHover");
+                 tagBarContainer.classList.add("tagBarContainerHover");
+
+             });
+             tagBarContainer.addEventListener("mouseout", () => {
+                 tagBar.style.visibility = "hidden";
+                 miniContainer.classList.remove("miniContainerHover");
+                 tagBarContainer.classList.remove("tagBarContainerHover");
+             });
+
+        }
+    }
+    catch (err) {
+        return err;
+    }
+
+    console.log(term);
+
+}
+
+searchBtn.addEventListener("click", showSearchResults);
+searchInput.addEventListener("keyup", event => {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    searchBtn.click(showSearchResults);
+  }
+});
+
+
 // HACER QUE ESTA FUNC SE HAGA CON EL ENTER EN EL INPUT, CON EL VER MAS Y CON EL CLICK EN BUSCAR
 
- })
 
 
-// display none a trending y suggested
-
-
-// visible al nuevo whitebar y rellenarlo,
-
-// crear nuevo search con gif y el fetch
-
-// con la async adentro con el fetch
-
-
-
-// function searchResults(){
-
-//     // Escondiendo suggested
-//     let sugerencias= document.getElementById('sugerenciasContainer');
-//     sugerencias.style.display="none";
-
-//     // Escondiendo trendings
-
-//     let tendencias= document.getElementById('tendenciasContainer');
-//     tendencias.style.display="none";
-
-// }
