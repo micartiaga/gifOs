@@ -25,7 +25,14 @@ class Giphy {
          let res = await fetch (this.url + '/gifs/search?' + this.apiKey + '&q='+ term + "&limit=25&offset=" + offset);
          let results = await res.json();
          return results;
+     }
 
+     //RELATED SEARCH WORDS
+
+     async tagsSearch(term){
+         let res = await fetch (this.url + "/tags/related/" + term + "?" + this.apiKey);
+         let tagsRelated= await res.json();
+         return tagsRelated;
      }
 
 };

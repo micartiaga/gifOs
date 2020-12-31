@@ -218,14 +218,8 @@ searchInput.addEventListener("input", () => {
         searchBtn.disabled = false;
         searchBtn.classList.replace("buscarBtnInactive", "buscarBtnActive");
         lupita.classList.replace("lupitaInactive", "lupitaActive");
-        // sugerencias de busqueda 
 
-        
-        for (let i = 0; i< 4; i++) {
-            let suggestedWord= document.createElement('li');
-
-        }
-        searchSuggestions.style.visibility = "visible";
+        searchTagsRelated(searchWord);
 
     } else {
         searchBtn.disabled = true;
@@ -360,6 +354,24 @@ async function searchResultsGrid(term, offset) {
     catch (err) {
         return err;
     }
+}
+
+// sugerencias de busqueda 
+async function searchTagsRelated(term) {
+
+    let giphy = new Giphy(url, key);
+    let tagsRelated = await giphy.tagsSearch(term);
+
+    searchSuggestions.style.visibility = "visible";
+    let liContainer = document.getElementById('searchSuggestedMiniContainer');
+    liContainer.innerHTML = "";
+    for (let i = 0; i < 3; i++) {
+        let suggestedWord = document.createElement('li');
+        let searchTags = tagsRelated.data[i].name;
+        suggestedWord.innerText = searchTags;
+        liContainer.appendChild(suggestedWord);
+    }
+
 }
 
 searchBtn.addEventListener("click", showSearchResults);
