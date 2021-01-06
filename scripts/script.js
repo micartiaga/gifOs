@@ -3,7 +3,6 @@ import Giphy from "./giphy.js";
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const url = "https://api.giphy.com/v1";
 
-
 // CAMBIAR TEMA
 
 let count = 0;
@@ -57,7 +56,6 @@ async function dailySuggested() {
             let urlGif = data[randomNumber - i].gif.images.downsized_medium.url;
             let tag = data[randomNumber - i].name_encoded;
 
-
             // CREANDO DIVS
 
             let tarjeta = document.createElement("div");
@@ -88,9 +86,40 @@ async function dailySuggested() {
             gifContainer.appendChild(seeMore);
             tarjeta.appendChild(gifContainer);
 
+            // BOTON SEE MORE y CLOSE
+            close.onclick=function(){
+               let randomNumber2 = Math.floor(Math.random() * 27); 
+               let newUrlGif = data[randomNumber2 -i ].gif.images.downsized_medium.url;
+               let newTag = data[randomNumber2 -i ].name_encoded;
+               console.log(newTag);
+               gif.setAttribute("src", newUrlGif);
+               hashtag.innerText = "#" + newTag;
+            }
+            seeMore.onclick= function(){
+                let gettingHashtag= hashtag.innerText;
+                let term= gettingHashtag.slice(1, gettingHashtag.length);
+                // Escondiendo suggested
+                let sugerencias = document.getElementById('sugerenciasContainer');
+                sugerencias.style.display = "none";
+                // Escondiendo trendings
+                let tendencias = document.getElementById('tendenciasContainer');
+                tendencias.style.display = "none";
+                // Escondiendo sugerencias de busqueda
+                searchSuggestions.style.visibility = "hidden";
+
+                // HACER VISIBLE WHITE CON PALABRA BUSCADA
+
+                let busqueda = document.getElementById('busquedaContainer');
+                busqueda.style.display = "block";
+                let searchWhiteBarTitle = document.getElementById('searchWhiteBarTitle');
+                searchWhiteBarTitle.innerText = term;
+
+                // RELLENAR LA GRID CON LA NUEVA BUSQUEDA
+                searchResultsGrid(term, 0);
+            }
+
 
             let tarjetaContainer = document.getElementById("sugerenciaCard");
-
             tarjetaContainer.appendChild(tarjeta);
 
         }
@@ -103,8 +132,6 @@ async function dailySuggested() {
 dailySuggested();
 
 // TRENDINGS
-
-
 
 async function trending(offset) {
     try {
@@ -203,7 +230,6 @@ const searchBtn = document.getElementById('buscarBtn');
 // seleccionar input
 const searchInput = document.getElementById('textContainer');
 
-
 // seleccionar search suggestions
 const searchSuggestions = document.getElementById('searchSuggestedContainer');
 
@@ -264,7 +290,6 @@ function showSearchResults() {
     let offset = 0;
 
     searchResultsGrid(searchWord, offset);
-
 
 };
 
@@ -382,8 +407,8 @@ searchInput.addEventListener("keyup", event => {
     }
 });
 
-
-// HACER QUE ESTA FUNC SE HAGA CON EL ENTER EN EL INPUT, CON EL VER MAS Y CON EL CLICK EN BUSCAR
-
-
+// AGREGAR LOS TAGS SUGERIDOS EN DIVS Y ASI TERMINO LA HOME
+// COMENZAR EL CREAR GUIFOS
+// HACER LA VERSION DAAAAAARKS
+// VER SI AGREGAR EXTRAS NICE TO HAVE
 
