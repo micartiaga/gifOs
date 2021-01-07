@@ -233,6 +233,9 @@ const searchInput = document.getElementById('textContainer');
 // seleccionar search suggestions
 const searchSuggestions = document.getElementById('searchSuggestedContainer');
 
+const searchSuggestionsTags= document.getElementById('tagsSuggestedContainer');
+
+
 // habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
 
 searchInput.addEventListener("input", () => {
@@ -268,9 +271,12 @@ function showSearchResults() {
     let tendencias = document.getElementById('tendenciasContainer');
     tendencias.style.display = "none";
 
-    // Escondiendo sugerencias de busqueda
+    
+    // CAMBIAR SUGERENCIAS DE BUSQUEDA
 
     searchSuggestions.style.visibility = "hidden";
+    searchSuggestionsTags.style.visibility= "visible";
+
 
     // HACER VISIBLE WHITE CON PALABRA BUSCADA
 
@@ -283,7 +289,6 @@ function showSearchResults() {
 
     let gridContainer = document.getElementById('gifSearch');
     gridContainer.innerHTML = "";
-
 
     // RELLENAR LA GRID CON LA NUEVA BUSQUEDA
 
@@ -389,14 +394,24 @@ async function searchTagsRelated(term) {
 
     searchSuggestions.style.visibility = "visible";
     let liContainer = document.getElementById('searchSuggestedMiniContainer');
-    liContainer.innerHTML = "";
+    let tagMiniContainer= document.getElementById('tagsSuggestedContainerUl');
+    tagMiniContainer.innerText="";
+    liContainer.innerText = "";
+    tagMiniContainer.classList.add("tagsSuggestedUl");
+    liContainer.classList.add("searchSuggestedUl");
     for (let i = 0; i < 3; i++) {
         let suggestedWord = document.createElement('li');
+        let suggestedTagLi = document.createElement('li');
         let searchTags = tagsRelated.data[i].name;
         suggestedWord.innerText = searchTags;
+        suggestedTagLi.innerText = "#" + searchTags;
+        suggestedWord.classList.add("searchSuggestedContainerLi");
+        suggestedTagLi.classList.add("tagsSuggestedContainerLi");
         liContainer.appendChild(suggestedWord);
-    }
-
+        tagMiniContainer.appendChild(suggestedTagLi);
+    };
+searchSuggestionsTags.style.visibility= "hidden";
+    
 }
 
 searchBtn.addEventListener("click", showSearchResults);
@@ -407,7 +422,8 @@ searchInput.addEventListener("keyup", event => {
     }
 });
 
-// AGREGAR LOS TAGS SUGERIDOS EN DIVS Y ASI TERMINO LA HOME
+// HACER QUE FUNCIONE EL BOTON DE TAGS RELATED azul 
+// hacer que funcione el de la lista gris
 // COMENZAR EL CREAR GUIFOS
 // HACER LA VERSION DAAAAAARKS
 // VER SI AGREGAR EXTRAS NICE TO HAVE

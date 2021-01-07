@@ -269,7 +269,7 @@ nav button{
 }
 
 
-#searchSuggestedContainer ul{
+.searchSuggestedUl {
     width: inherit;
     height: inherit;
     display: flex;
@@ -280,7 +280,11 @@ nav button{
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
-#searchSuggestedContainer li{
+.searchSuggestedUl2{
+    background: none;
+}
+
+.searchSuggestedContainerLi{
     list-style: none;
     width: 1057px;
     height: 36px;
@@ -299,3 +303,4 @@ nav button{
     outline-offset: -4px;
 
 }
+

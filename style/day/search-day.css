@@ -2,3 +2,47 @@
     display: none;
 }
 
+/* TAGS SUGERIDOS POST ENTER BUSQUEDA */
+
+#searchWhiteBarTitle{
+    margin-top: 100px;
+}
+
+#tagsSuggestedContainer{
+    margin-left: 100px;
+    width: 1200px;
+    height: 160px;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+ 
+}
+
+.tagsSuggestedUl{
+    width: inherit;
+    height: inherit;
+    display: flex; 
+    padding-top: 12px;
+}
+
+.tagsSuggestedContainerLi{
+    list-style: none;
+    height: 34px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    background: var(--button-color-day-blue1);
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    color: var(--font-white);
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+#tagsSuggestedContainer li:hover{
+    background: var(--button-color-day-blue2);
+    outline: 1px dotted #110038 ;
+    outline-offset: -5px;
+}
