@@ -87,35 +87,18 @@ async function dailySuggested() {
             tarjeta.appendChild(gifContainer);
 
             // BOTON SEE MORE y CLOSE
-            close.onclick=function(){
-               let randomNumber2 = Math.floor(Math.random() * 27); 
-               let newUrlGif = data[randomNumber2 -i ].gif.images.downsized_medium.url;
-               let newTag = data[randomNumber2 -i ].name_encoded;
-               console.log(newTag);
-               gif.setAttribute("src", newUrlGif);
-               hashtag.innerText = "#" + newTag;
+            close.onclick = function () {
+                let randomNumber2 = Math.floor(Math.random() * 27);
+                let newUrlGif = data[randomNumber2 - i].gif.images.downsized_medium.url;
+                let newTag = data[randomNumber2 - i].name_encoded;
+                console.log(newTag);
+                gif.setAttribute("src", newUrlGif);
+                hashtag.innerText = "#" + newTag;
             }
-            seeMore.onclick= function(){
-                let gettingHashtag= hashtag.innerText;
-                let term= gettingHashtag.slice(1, gettingHashtag.length);
-                // Escondiendo suggested
-                let sugerencias = document.getElementById('sugerenciasContainer');
-                sugerencias.style.display = "none";
-                // Escondiendo trendings
-                let tendencias = document.getElementById('tendenciasContainer');
-                tendencias.style.display = "none";
-                // Escondiendo sugerencias de busqueda
-                searchSuggestions.style.visibility = "hidden";
-
-                // HACER VISIBLE WHITE CON PALABRA BUSCADA
-
-                let busqueda = document.getElementById('busquedaContainer');
-                busqueda.style.display = "block";
-                let searchWhiteBarTitle = document.getElementById('searchWhiteBarTitle');
-                searchWhiteBarTitle.innerText = term;
-
-                // RELLENAR LA GRID CON LA NUEVA BUSQUEDA
-                searchResultsGrid(term, 0);
+            seeMore.onclick = function () {
+                let gettingHashtag = hashtag.innerText;
+                let term = gettingHashtag.slice(1, gettingHashtag.length);
+                searchWord(term);
             }
 
 
@@ -233,7 +216,7 @@ const searchInput = document.getElementById('textContainer');
 // seleccionar search suggestions
 const searchSuggestions = document.getElementById('searchSuggestedContainer');
 
-const searchSuggestionsTags= document.getElementById('tagsSuggestedContainer');
+const searchSuggestionsTags = document.getElementById('tagsSuggestedContainer');
 
 
 // habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
@@ -259,48 +242,12 @@ searchInput.addEventListener("input", () => {
 });
 
 function showSearchResults() {
-
-    let searchWord = searchInput.value;
-
-    // Escondiendo suggested
-    let sugerencias = document.getElementById('sugerenciasContainer');
-    sugerencias.style.display = "none";
-
-    // Escondiendo trendings
-
-    let tendencias = document.getElementById('tendenciasContainer');
-    tendencias.style.display = "none";
-
-    
-    // CAMBIAR SUGERENCIAS DE BUSQUEDA
-
-    searchSuggestions.style.visibility = "hidden";
-    searchSuggestionsTags.style.visibility= "visible";
-
-
-    // HACER VISIBLE WHITE CON PALABRA BUSCADA
-
-    let busqueda = document.getElementById('busquedaContainer');
-    busqueda.style.display = "block";
-    let searchWhiteBarTitle = document.getElementById('searchWhiteBarTitle');
-    searchWhiteBarTitle.innerText = searchWord;
-
-    //VACIO CONTENIDO ANTERIOR
-
-    let gridContainer = document.getElementById('gifSearch');
-    gridContainer.innerHTML = "";
-
-    // RELLENAR LA GRID CON LA NUEVA BUSQUEDA
-
-    let offset = 0;
-
-    searchResultsGrid(searchWord, offset);
-
+    let term = searchInput.value;
+    searchWord(term);
 };
 
 async function searchResultsGrid(term, offset) {
     try {
-
         let giphy = new Giphy(url, key);
         let searchedGif = await giphy.gifSearch(term, offset);
         let data = searchedGif.data;
@@ -365,6 +312,8 @@ async function searchResultsGrid(term, offset) {
                 tagBarContainer.style.width = "288px";
             };
 
+            searchInput.value = "";
+
             // HOVER DEL TAG
 
             tagBarContainer.addEventListener("mouseover", () => {
@@ -379,7 +328,10 @@ async function searchResultsGrid(term, offset) {
                 tagBarContainer.classList.remove("tagBarContainerHover");
             });
 
+
         }
+        searchMoreTagsRelated(term);
+        
     }
     catch (err) {
         return err;
@@ -394,8 +346,8 @@ async function searchTagsRelated(term) {
 
     searchSuggestions.style.visibility = "visible";
     let liContainer = document.getElementById('searchSuggestedMiniContainer');
-    let tagMiniContainer= document.getElementById('tagsSuggestedContainerUl');
-    tagMiniContainer.innerText="";
+    let tagMiniContainer = document.getElementById('tagsSuggestedContainerUl');
+    tagMiniContainer.innerText = "";
     liContainer.innerText = "";
     tagMiniContainer.classList.add("tagsSuggestedUl");
     liContainer.classList.add("searchSuggestedUl");
@@ -407,12 +359,53 @@ async function searchTagsRelated(term) {
         suggestedTagLi.innerText = "#" + searchTags;
         suggestedWord.classList.add("searchSuggestedContainerLi");
         suggestedTagLi.classList.add("tagsSuggestedContainerLi");
+
+        // FUNCIONALIDAD LI
+
+        suggestedTagLi.onclick = function () {
+            let term = searchTags;
+            searchWord(term);
+        }
+
+        suggestedWord.onclick = function () {
+            let term = this.innerText;
+            searchWord(term);
+        }
         liContainer.appendChild(suggestedWord);
         tagMiniContainer.appendChild(suggestedTagLi);
-    };
-searchSuggestionsTags.style.visibility= "hidden";
+    }
+    searchSuggestionsTags.style.visibility = "hidden";
+};
+
+async function searchMoreTagsRelated(term) {
+
+    let giphy = new Giphy(url, key);
+    let tagsRelated = await giphy.tagsSearch(term);
+
+    let tagMiniContainer = document.getElementById('tagsSuggestedContainerUl');
+    tagMiniContainer.innerText = "";
     
-}
+    tagMiniContainer.classList.add("tagsSuggestedUl");
+    
+    for (let i = 0; i < 3; i++) {
+        
+        let suggestedTagLi = document.createElement('li');
+        let searchTags = tagsRelated.data[i].name;
+        
+        suggestedTagLi.innerText = "#" + searchTags;
+        suggestedTagLi.classList.add("tagsSuggestedContainerLi");
+
+        // FUNCIONALIDAD LI
+
+        suggestedTagLi.onclick = function () {
+            let term = searchTags;
+            searchWord(term);
+        }
+        
+        tagMiniContainer.appendChild(suggestedTagLi);
+    }
+    searchSuggestionsTags.style.visibility = "visible";
+};
 
 searchBtn.addEventListener("click", showSearchResults);
 searchInput.addEventListener("keyup", event => {
@@ -422,9 +415,29 @@ searchInput.addEventListener("keyup", event => {
     }
 });
 
-// HACER QUE FUNCIONE EL BOTON DE TAGS RELATED azul 
-// hacer que funcione el de la lista gris
+function searchWord(term) {
+    // ESCONDIENDO SUGGESTED
+    let sugerencias = document.getElementById('sugerenciasContainer');
+    sugerencias.style.display = "none";
+    // ESCONDIENDO TRENDINGS
+    let tendencias = document.getElementById('tendenciasContainer');
+    tendencias.style.display = "none";
+    // CAMBIAR SUGERENCIA DE BUSQUEDA
+    searchSuggestions.style.visibility = "hidden";
+    let busqueda = document.getElementById('busquedaContainer');
+    // HACER VISIBLE WHITE TITLE CON PALABRA BUSCADA
+    busqueda.style.display = "block";
+    let searchWhiteBarTitle = document.getElementById('searchWhiteBarTitle');
+    searchWhiteBarTitle.innerText = term;
+    let gridContainer = document.getElementById('gifSearch');
+    // VACIO CONTENIDO ANTERIOR
+    gridContainer.innerHTML = "";
+    searchResultsGrid(term, 0);
+};
+
+
+
+
 // COMENZAR EL CREAR GUIFOS
 // HACER LA VERSION DAAAAAARKS
 // VER SI AGREGAR EXTRAS NICE TO HAVE
-
