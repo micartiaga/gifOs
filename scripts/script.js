@@ -91,7 +91,6 @@ async function dailySuggested() {
                 let randomNumber2 = Math.floor(Math.random() * 27);
                 let newUrlGif = data[randomNumber2 - i].gif.images.downsized_medium.url;
                 let newTag = data[randomNumber2 - i].name_encoded;
-                console.log(newTag);
                 gif.setAttribute("src", newUrlGif);
                 hashtag.innerText = "#" + newTag;
             }
