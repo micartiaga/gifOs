@@ -1,0 +1,60 @@
+/* HEADER */
+
+#logoMisGuifos a{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 134px;
+    margin-left: 60px ;
+    margin-top: 35px;
+    margin-bottom: 75px;
+}
+
+#logoMisGuifos a :first{
+    width: 24px;
+}
+
+/* VENTANA CREAR GUIFOS */
+
+#crearGuifos{
+    display: flex;
+    justify-content: center;
+}
+
+#windowCrearGuifos{
+    padding: 3px;
+    width: 684px;
+    height: 386px;
+}
+
+#misGuifosInstructions ol{
+    border:hotpink 1px solid;
+    padding: 20px;
+}
+
+#misGuifosUno{
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+#misGuifosUno div {    
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 20px;
+    display: flex;
+    /* align-items: center; */
+    padding-left:25px ;
+    padding-top: 30px ;
+}
+
+#misGuifosUno div img{
+    margin-right: 16px;
+}
+
+#misGuifosUno p{
+padding: 7px 93px 28px 73px;
+letter-spacing: 0;
+    line-height: 20px;
+}
