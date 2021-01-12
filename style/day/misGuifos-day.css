@@ -27,34 +27,80 @@
     height: 386px;
 }
 
-#misGuifosInstructions ol{
-    border:hotpink 1px solid;
-    padding: 20px;
-}
+/* PASO 1- CREAR GUIFOS */
 
 #misGuifosUno{
     font-size: 14px;
-    color: #110038;
+    color: var(--font-violet);
     letter-spacing: 0;
     line-height: 20px;
 }
 
-#misGuifosUno div {    
+#misGuifosUnoTitle {    
     font-size: 16px;
     letter-spacing: 0;
     line-height: 20px;
     display: flex;
-    /* align-items: center; */
     padding-left:25px ;
     padding-top: 30px ;
 }
 
-#misGuifosUno div img{
+#misGuifosUnoTitle img{
     margin-right: 16px;
+    height: 32px;
+    margin-bottom: 7px;
 }
 
-#misGuifosUno p{
-padding: 7px 93px 28px 73px;
-letter-spacing: 0;
-    line-height: 20px;
+#misGuifosUnoText{   
+    display: flex;
+    flex-direction: column;
+    height: 190px;
+    width: 518px;
+    justify-content: space-between;
+    margin-left: 73px ;
+}
+
+#misGuifosUnoText ol{
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+    counter-reset: list;
+}
+
+#misGuifosUnoText  ol li{
+    list-style: none;
+}
+
+#misGuifosUnoText  ol li:before{
+    font-weight: bold;
+    content: counter(list) ") ";
+    counter-increment: list;
+}
+
+#misGuifosUnoBtn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 36px;
+    padding-top: 28px;
+}
+
+#misGuifosUnoBtn button{
+    width: 144px;
+    height: 36px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-violet);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-left: 16px; 
+}
+
+#misGuifosUnoBtn button:first-child{
+    background: #FFF4FD;
 }
