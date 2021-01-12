@@ -30,6 +30,7 @@
 /* PASO 1- CREAR GUIFOS */
 
 #misGuifosUno{
+    visibility: visible;
     font-size: 14px;
     color: var(--font-violet);
     letter-spacing: 0;
