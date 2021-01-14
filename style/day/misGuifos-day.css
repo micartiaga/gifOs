@@ -89,6 +89,7 @@
     padding-top: 28px;
 }
 
+
 #misGuifosUnoBtn button{
     width: 144px;
     height: 36px;
@@ -104,4 +105,9 @@
 
 #misGuifosUnoBtn button:first-child{
     background: #FFF4FD;
+}
+
+#misGuifosUnoCancelar a{
+height: inherit;
+width: inherit;
 }
