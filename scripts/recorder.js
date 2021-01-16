@@ -1,13 +1,13 @@
 class Recorder {
     constructor() {
         this.video = document.getElementById('video');
+        this.videoGif = document.getElementById('videoGif')
         this.gif = {
             url: '',
             blob: '',
         }
 
         this.stream = '';
-        this.vidRecorder = '';
         this.gifRecorder='';
     }
     async getStreamAndPlay() {
@@ -42,7 +42,7 @@ class Recorder {
         await this.gifRecorder.startRecording();
         this.gifRecorder.stream = this.stream;
         
-    }
+    };
 
     async stopRecording(){
         // STOP
@@ -53,10 +53,23 @@ class Recorder {
             form.append('file', blob, 'myGif.gif');
             console.log(form.get('file'));
             this.gif.blob= form;
+
+            let urlCaptura= this.gifRecorder.toURL();
+            this.gif.url=urlCaptura;
+            console.log("esto es lo que quiero ver como url"+urlCaptura);
+            this.videoGif.setAttribute("src", this.gif.url);
+            this.video.style.display= "none";
             
+
+             this.gifRecorder.reset();
+             this.gifRecorder.destroy();
         
         }
         );
+
+        this.stream.getTracks().forEach((track) => {
+            track.stop();
+        });
 
     }
 

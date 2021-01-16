@@ -153,6 +153,10 @@ width: inherit;
     margin-left: -1px;
 }
 
+#videoContainer{
+    display: none;
+}
+
 .videoContainer{
     background: #FFFFFF;
     border: 1px solid #979797;
@@ -163,7 +167,7 @@ width: inherit;
     margin-left: 8px;
     overflow: hidden;
     object-fit: fill;
-    display: none;
+    
 }
 
 /* PASO 3 */
@@ -283,6 +287,19 @@ width: inherit;
     box-shadow: inset 2px 2px 0 0 #E6E6E6, inset -2px -2px 0 0 #000000;
 }
 
+#videoContainer3{
+    overflow: hidden;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#videoContainer3 img{
+    height: inherit; 
+    width: inherit;
+}
+
 /* PASO 5 */
 
 #misGuifosCinco{
@@ -340,7 +357,3 @@ width: inherit;
     padding-right: 9px ;
 }
 
-.video{
-    
-
-}

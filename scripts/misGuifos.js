@@ -5,7 +5,7 @@ import Recorder from "./recorder.js";
 const cancelarBtn1 = document.getElementById('misGuifosUnoCancelar');
 const comenzarBtn = document.getElementById('misGuifosUnoComenzar');
 const ventanaInstrucciones = document.getElementById('windowCrearGuifos');
-const ventanaTitulo = document.getElementById('windowTitle');
+
 const capturarBtn = document.getElementById('capturarBtn');
 const listoBtn = document.getElementById('listoBtn');
 const repetirCaptura = document.getElementById('repetirBtn');
@@ -61,6 +61,7 @@ capturarBtn.addEventListener("click", () => {
     ventanaDos.style.display = "none";
     ventanaTres.style.display = "flex";
 
+
     recorder.startRecording();
 
 
@@ -77,7 +78,8 @@ listoBtn.addEventListener("click", () => {
 
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "none";
-
+    videoContainer.style.display= "none";
+    
     recorder.stopRecording();
 
 });
@@ -86,12 +88,17 @@ repetirCaptura.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
     titulo.innerText = "Capturando tu Guifo";
     let ventanaCuatro = document.getElementById('misGuifosCuatro');
-    let ventanaTres = document.getElementById('misGuifosTres');
+    let ventanaDos = document.getElementById('misGuifosDos');
+    let ventanaTres= document.getElementById('misGuifosTres');
+    ventanaTres.style.display= "none";
     ventanaCuatro.style.display = "none";
-    ventanaTres.style.display = "flex";
+    ventanaDos.style.display = "flex";
 
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "block";
+    videoContainer.style.display="none";
+
+    recorder.getStreamAndPlay();
 
 
 });
