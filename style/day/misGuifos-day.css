@@ -207,7 +207,7 @@ width: inherit;
     height: 36px;
 }
 
-#timer{
+.timer{
     height: 36px;
     width: 124px;
     background: #FFFFFF;
@@ -222,4 +222,119 @@ width: inherit;
 }
 
 
+/* PASO 4 */
+
+#misGuifosCuatro{
+    display: none;
+    flex-direction: column;
+}
+
+#previaContainer{
+    margin-top: 3px;
+    display: flex;
+    padding: 21px 9px ;
+    height: 73px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#misGuifosCuatroBtn button{
+    width: 144px;
+    height: 36px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-violet);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-left: 16px; 
+}
+
+#misGuifosCuatroBtn button:first-child{
+    background: #FFF4FD;
+    margin-left: 119px;
+}
+
+#progress{
+    display: flex;
+    align-items: center;
+}
+
+#progress button{
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progressBar{
+    width: 240px;
+    height: 24px;  
+}
+
+.progressBar{
+    background: #B4B4B4;
+    border: 1px solid #979797;
+    box-shadow: inset 2px 2px 0 0 #E6E6E6, inset -2px -2px 0 0 #000000;
+}
+
+/* PASO 5 */
+
+#misGuifosCinco{
+    display: none;
+    flex-direction: column;
+}
+
+#misGuifosCinco div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#misGuifosCinco h2{
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    margin-top: 8px ;
+}
+
+#progressUpload{
+    height: 24px;
+    width: 324px;
+    margin-top: 39px;
+    margin-bottom: 8px;
+}
+
+#misGuifosCinco p {
+    font-size: 12px;
+    color: rgba(17,0,56,0.64);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 14px;
+}
+
+#misGuifosCinco p s{
+    color: #00001A;
+}
+
+#misGuifosCinco button{
+    background: #FFF4FD;
+    width: 144px;
+    height: 36px;
+    color: var(--font-violet);
+}
+
+#misGuifosCinco div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 18px;
+    padding-right: 9px ;
+}
 

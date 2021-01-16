@@ -6,7 +6,9 @@ const ventanaInstrucciones=document.getElementById('windowCrearGuifos');
 const ventanaTitulo= document.getElementById('windowTitle');
 const capturarBtn= document.getElementById('capturarBtn');
 const listoBtn= document.getElementById('listoBtn');
-
+const repetirCaptura= document.getElementById('repetirBtn');
+const subirGuifo= document.getElementById('subirGuifoBtn');
+const cancelarBtn2= document.getElementById('misGuifosCincoCancelar');
 
 // CREAR GUIFOS PASO 1
 
@@ -46,4 +48,51 @@ capturarBtn.addEventListener("click",()=>{
     ventanaDos.style.display= "none";
     ventanaTres.style.display= "flex";
 
+
+
 });
+
+listoBtn.addEventListener("click",()=>{
+    let titulo=document.querySelector("#windowTitle p")
+    titulo.innerText= "Vista Previa";
+    let ventanaTres= document.getElementById('misGuifosTres');
+    let ventanaCuatro= document.getElementById('misGuifosCuatro');
+    ventanaTres.style.display= "none";
+    ventanaCuatro.style.display= "flex";
+   
+    let cross= document.getElementById('misGuifosCross');
+    cross.style.display="none";
+
+});
+
+repetirCaptura.addEventListener("click",()=>{
+    let titulo=document.querySelector("#windowTitle p")
+    titulo.innerText= "Capturando tu Guifo";
+    let ventanaCuatro= document.getElementById('misGuifosCuatro');
+    let ventanaTres= document.getElementById('misGuifosTres'); 
+    ventanaCuatro.style.display= "none";
+    ventanaTres.style.display= "flex";
+
+    let cross= document.getElementById('misGuifosCross');
+    cross.style.display="block";
+
+    
+});
+
+subirGuifo.addEventListener("click", ()=>{
+    let titulo=document.querySelector("#windowTitle p")
+    titulo.innerText= "Subiendo Guifo";
+    let ventanaCinco= document.getElementById('misGuifosCinco');
+    let ventanaCuatro= document.getElementById('misGuifosCuatro');
+    ventanaCuatro.style.display= "none";
+    ventanaCinco.style.display= "flex";
+
+    let cross= document.getElementById('misGuifosCross');
+    cross.style.display="block";
+});
+
+cancelarBtn2.addEventListener("click",()=>{
+    showMisGuifos();
+})
+
+
