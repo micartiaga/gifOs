@@ -94,14 +94,19 @@ repetirCaptura.addEventListener("click", () => {
     ventanaCuatro.style.display = "none";
     ventanaDos.style.display = "flex";
 
+    let video= document.getElementById('video');
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "block";
-    videoContainer.style.display="none";
+    videoContainer.style.display="block";
+    video.style.display= "block";
 
     recorder.getStreamAndPlay();
 
 
 });
+
+// DONDE SE SUPONE QUE DEBERIA HACE EL POST A LA API, QUIERO MORIR
+
 
 subirGuifo.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")

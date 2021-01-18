@@ -51,7 +51,9 @@ class Recorder {
             let blob= this.gifRecorder.getBlob();
             let form = new FormData();
             form.append('file', blob, 'myGif.gif');
-            console.log(form.get('file'));
+
+            // QUIERO LLORAR ESTO NO SIRVE :(
+            console.log("Este es el file" + form.get('file'));
             this.gif.blob= form;
 
             let urlCaptura= this.gifRecorder.toURL();
@@ -60,6 +62,7 @@ class Recorder {
             this.videoGif.setAttribute("src", this.gif.url);
             this.video.style.display= "none";
             
+            // ESTO SIRVE PERO NO SE POR QUE, ME BORRA TODO
 
              this.gifRecorder.reset();
              this.gifRecorder.destroy();
