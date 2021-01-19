@@ -24,7 +24,6 @@ const cancelarBtn2 = document.getElementById('misGuifosCincoCancelar');
 const videoContainer= document.getElementById('videoContainer');
 
 
-
 const recorder= new Recorder();
 const upGiphy= new Giphy(urlUp, key);
 
@@ -61,7 +60,7 @@ comenzarBtn.addEventListener("click", () => {
     });
 
     recorder.getStreamAndPlay();
-    
+
 });
 
 capturarBtn.addEventListener("click", () => {
@@ -90,7 +89,7 @@ listoBtn.addEventListener("click", () => {
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "none";
     videoContainer.style.display= "none";
-    
+
     recorder.stopRecording();
 
 });
@@ -143,5 +142,9 @@ cancelarBtn2.addEventListener("click", () => {
 
 
 
+// HACER QUE APAREZCA LA ULTIMA PARTE DE LA SUBIDA CON BOTON DESCARGA Y DEMAS
+// HACER GRID DE MIS GUIFOS
+// VOLVER A LA HOME Y CAMBIAR EL THEME
+// AGREGAR LINK A MISGUIFOS DE LA HOME
 
 
