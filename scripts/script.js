@@ -3,6 +3,8 @@ import Giphy from "./giphy.js";
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const url = "https://api.giphy.com/v1";
 
+
+
 // CAMBIAR TEMA
 
 let count = 0;

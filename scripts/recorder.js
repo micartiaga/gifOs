@@ -46,19 +46,20 @@ class Recorder {
 
     async stopRecording(){
         // STOP
-        await this.gifRecorder.stopRecording(()=>{
+        await this.gifRecorder.stopRecording(async ()=>{
             // GUARDAR GRABACION COMO GIF Y SU URL
-            let blob= this.gifRecorder.getBlob();
+            let blob= await this.gifRecorder.getBlob();
             let form = new FormData();
             form.append('file', blob, 'myGif.gif');
 
             // QUIERO LLORAR ESTO NO SIRVE :(
-            console.log("Este es el file" + form.get('file'));
+            // console.log("Este es el file " + form.get('file'));
+
             this.gif.blob= form;
 
             let urlCaptura= this.gifRecorder.toURL();
             this.gif.url=urlCaptura;
-            console.log("esto es lo que quiero ver como url"+urlCaptura);
+            console.log("esto es lo que quiero ver como url "+urlCaptura);
             this.videoGif.setAttribute("src", this.gif.url);
             this.video.style.display= "none";
             
@@ -70,9 +71,9 @@ class Recorder {
         }
         );
 
-        this.stream.getTracks().forEach((track) => {
+         this.stream.getTracks().forEach((track) => {
             track.stop();
-        });
+         });
 
     }
 
@@ -83,7 +84,7 @@ export default Recorder;
 
 
 // Recorder.GIF TIENE LA URL Y EL Blob
-// NECESITO SUBIR ESO COMO UN GIF A LA API CON UN POST
+// NECESITO SUBIR ESO COMO UN GIF/form A LA API CON UN POST
 
 // PARA ESO TENGO QUE CREAR UN NUEVO TIPO DE GIPHY PERO CON OTRA URL, LA DE UPLOAD --- upload.giphy.com/v1/gifs/
 

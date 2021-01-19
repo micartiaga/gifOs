@@ -1,4 +1,14 @@
 import Recorder from "./recorder.js";
+import Giphy from "./giphy.js";
+
+const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
+const urlUp = "https://upload.giphy.com/v1";
+
+
+if (!localStorage.misGuifos){
+    localStorage.setItem('misGuifos', "[]")
+};
+
 
 // CREAR GUIFOS BOTONES PASO 1
 
@@ -15,9 +25,10 @@ const videoContainer= document.getElementById('videoContainer');
 
 
 
-// FUNCIONES CAPTURA VIDEO
-
 const recorder= new Recorder();
+const upGiphy= new Giphy(urlUp, key);
+
+
 
 // BOTONES
 
@@ -119,6 +130,9 @@ subirGuifo.addEventListener("click", () => {
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "block";
     videoContainer.style.display= "none"
+
+    upGiphy.uploadGif(recorder.gif.blob);
+
 });
 
 cancelarBtn2.addEventListener("click", () => {
@@ -131,21 +145,3 @@ cancelarBtn2.addEventListener("click", () => {
 
 
 
-
-
-// async function getStreamAndRecord() {
-//     await navigator.mediaDevices.getUserMedia({
-//         audio: false,
-//         video: {
-//             width: { min: 838 },
-//             height: { min: 440 }
-//         }
-//     })
-
-//         .then(function (stream) {
-//             let video = document.getElementById('video');
-//             video.srcObject = stream;
-//             video.play()
-//         }
-//         )
-// };
