@@ -37,20 +37,22 @@ class Giphy {
 
     async uploadGif(blob) {
         try {
-            
+
             let res = await fetch(this.url + '/gifs?' + this.apiKey, {
                 method: 'POST',
                 body: blob
-            } );
+            });
+            console.log(res);
             let upload = await res.json();
+            console.log(upload);
             let idMyGiphy = upload.data.id;
             console.log(idMyGiphy);
 
-            let arrayMisGuifos= JSON.parse(localStorage.getItem('misGuifos'));
+            let arrayMisGuifos = JSON.parse(localStorage.getItem('misGuifos'));
             arrayMisGuifos.push(idMyGiphy);
             localStorage.setItem('misGuifos', JSON.stringify(arrayMisGuifos));
 
-            let myGif= this.getGifById(idMyGiphy);
+            let myGif = this.getGifById(idMyGiphy);
             return myGif;
 
         } catch (err) {
@@ -60,7 +62,7 @@ class Giphy {
 
     async getGifById(id) {
 
-        const res = await fetch(`${this.url}/gifs/${id}?${this.key}`);
+        const res = await fetch("https://api.giphy.com/v1/gifs/" + id + "?" + this.apiKey);
         const myGif = await res.json();
         return myGif
     }
