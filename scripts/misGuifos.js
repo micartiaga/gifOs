@@ -4,10 +4,45 @@ import Giphy from "./giphy.js";
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const urlUp = "https://upload.giphy.com/v1";
 
+const recorder = new Recorder();
+const upGiphy = new Giphy(urlUp, key);
 
-if (!localStorage.misGuifos){
+if (!localStorage.misGuifos) {
     localStorage.setItem('misGuifos', "[]")
 };
+
+async function misGuifosGrid(){
+
+    const arrayStorage =  localStorage.getItem('misGuifos');
+    let  array = JSON.parse(arrayStorage);
+
+    let misGuifosContainer = document.getElementById('misGuifosContainer');
+
+    for (let gifo of array){
+
+        let myGif= await upGiphy.getGifById(gifo);
+        
+        let url= await myGif.data.images.downsized_medium.url;
+        let height= await myGif.data.images.downsized_medium.height;
+        let width= await myGif.data.images.downsized_medium.width;
+
+        let gif= document.createElement('img');
+        gif.setAttribute("src", url);
+        gif.classList.add('gridMiniContainer');
+        
+        if (width>height){
+            gif.classList.add('gridMiniContainerLarge');
+        } else {
+            gif.classList.add('gridMiniContainerSmall');
+        }
+        misGuifosContainer.appendChild(gif);
+        
+    }
+
+};
+
+misGuifosGrid();
+
 
 
 // CREAR GUIFOS BOTONES PASO 1
@@ -21,11 +56,9 @@ const listoBtn = document.getElementById('listoBtn');
 const repetirCaptura = document.getElementById('repetirBtn');
 const subirGuifo = document.getElementById('subirGuifoBtn');
 const cancelarBtn2 = document.getElementById('misGuifosCincoCancelar');
-const videoContainer= document.getElementById('videoContainer');
+const videoContainer = document.getElementById('videoContainer');
 
 
-const recorder= new Recorder();
-const upGiphy= new Giphy(urlUp, key);
 
 
 
@@ -50,7 +83,7 @@ comenzarBtn.addEventListener("click", () => {
     ventanaUno.style.display = "none";
     ventanaDos.style.display = "flex";
     misGuifos.style.display = "none";
-    videoContainer.style.display="block";
+    videoContainer.style.display = "block";
 
     ventanaInstrucciones.style.height = "548px";
     ventanaInstrucciones.style.width = "860px";
@@ -88,7 +121,7 @@ listoBtn.addEventListener("click", () => {
 
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "none";
-    videoContainer.style.display= "none";
+    videoContainer.style.display = "none";
 
     recorder.stopRecording();
 
@@ -99,24 +132,21 @@ repetirCaptura.addEventListener("click", () => {
     titulo.innerText = "Capturando tu Guifo";
     let ventanaCuatro = document.getElementById('misGuifosCuatro');
     let ventanaDos = document.getElementById('misGuifosDos');
-    let ventanaTres= document.getElementById('misGuifosTres');
-    ventanaTres.style.display= "none";
+    let ventanaTres = document.getElementById('misGuifosTres');
+    ventanaTres.style.display = "none";
     ventanaCuatro.style.display = "none";
     ventanaDos.style.display = "flex";
 
-    let video= document.getElementById('video');
+    let video = document.getElementById('video');
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "block";
-    videoContainer.style.display="block";
-    video.style.display= "block";
+    videoContainer.style.display = "block";
+    video.style.display = "block";
 
     recorder.getStreamAndPlay();
 
 
 });
-
-// DONDE SE SUPONE QUE DEBERIA HACE EL POST A LA API, QUIERO MORIR
-
 
 subirGuifo.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
@@ -128,11 +158,17 @@ subirGuifo.addEventListener("click", () => {
 
     let cross = document.getElementById('misGuifosCross');
     cross.style.display = "block";
-    videoContainer.style.display= "none"
+    videoContainer.style.display = "none"
 
-    upGiphy.uploadGif(recorder.gif.blob);
+    let myGif = upGiphy.uploadGif(recorder.gif.blob);
+    let id=  upGiphy.getGifById(myGif);
+
+    console.log('este es el gif ' + myGif + 'y el id es ' + id);
+
+
 
 });
+
 
 cancelarBtn2.addEventListener("click", () => {
     showMisGuifos();

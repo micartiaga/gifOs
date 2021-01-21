@@ -51,9 +51,7 @@ class Giphy {
             let arrayMisGuifos = JSON.parse(localStorage.getItem('misGuifos'));
             arrayMisGuifos.push(idMyGiphy);
             localStorage.setItem('misGuifos', JSON.stringify(arrayMisGuifos));
-
-            let myGif = this.getGifById(idMyGiphy);
-            return myGif;
+            return idMyGiphy;
 
         } catch (err) {
             console.log(err)
@@ -64,8 +62,16 @@ class Giphy {
 
         const res = await fetch("https://api.giphy.com/v1/gifs/" + id + "?" + this.apiKey);
         const myGif = await res.json();
+        
         return myGif
-    }
+    };
+
+    // async gridMisGuifos(array){
+    //     for (gifo of array){
+    //         const res = awa
+    //     }
+
+    // }
 
 };
 
