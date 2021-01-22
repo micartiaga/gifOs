@@ -15,7 +15,66 @@
 
 </head>
 <body>
-    
+    <header>
+        <!-- TOP BIENVENIDOS -->
+        <div id="topHeader">
+            <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: <span> 12.765.803
+                </span> </p>
+        </div>
+
+        <!-- HEADER -->
+        <div id="navbarContainer">
+            <!-- LOGO GIFOS-->
+            <div id="logo">
+                <a href="index.html">
+                    <img id="logoImg" src="./assets/gifOF_logo.png" alt="logo-gifos">
+                </a>
+            </div>
+            <!-- BOTONES -->
+            <nav>
+                <ul>
+                    <!-- CREAR GIFOS -->
+                    <li id="btnCrearGifos" class="navButton">
+                        <a href="./captura.html">Crear Guifos</a>
+                    </li>
+                    <!-- ELEGIR TEMA -->
+                    <li>
+                        <div id="dropdownContainer">
+                            <button id="btnDropdown01" class="navButton" onclick="">Elegir tema</button>
+                            <button id="btnDropdown02" class="navButton">
+                                <img id="dropdownArrow" src="./assets/dropdown.svg" alt="dropdown">
+                            </button>
+                        </div>
+                        <div id="temaDropdown" class="temaDropdown">
+                            <div id="sailorDayBtn"><span class="underline">S</span>ailor Day</div>
+                            <div id="sailorNightBtn"> <span class="underlineNight">S</span>ailor Night</div>
+                        </div>
+                        <!-- MIS GIFOS -->
+                    </li>
+                    <li id="btnMisGifos">
+                        <a href="misGuifos.html"><span class="underline">M</span>is Guifos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        
+
+    </header>
+
+    <main>
+        <section id="misGuifos">
+            <div class="whiteBarTitles">Mis guifos</div>
+
+            <div id="misGuifosContainer" class="gridContainer"> 
+
+                
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/misGuifos.js" type="module"></script>
+    <script src="./scripts/script.js" type="module"></script>
 </body>
 
 </html>

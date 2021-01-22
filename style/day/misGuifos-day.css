@@ -19,6 +19,9 @@
 #crearGuifos{
     display: flex;
     justify-content: center;
+    width: 1438px;
+    margin-left: -100px;
+    
 }
 
 #windowCrearGuifos{
@@ -167,7 +170,7 @@ width: inherit;
     margin-left: 8px;
     overflow: hidden;
     object-fit: fill;
-    
+ 
 }
 
 /* PASO 3 */
@@ -355,5 +358,73 @@ width: inherit;
     justify-content: flex-end;
     padding-top: 18px;
     padding-right: 9px ;
+}
+
+/* PASO 6 */
+
+#misGuifosSeis{
+    display: none;
+    flex-direction: column;
+}
+
+#misGuifosSeis p{
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+#misGuifosSeis div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+
+#misGuifosSeis div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 46px;
+    margin-top: 60px;
+}
+
+#exitoBotonesDescarga{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid red;
+    margin-top: 49px;
+    height: 124px;
+    margin-right: 46px;
+}
+
+.videoExito{
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    height: 196px;
+    width: 371px;
+    margin-top: 27px;
+    margin-left: 24px;
+    overflow: hidden;
+    object-fit: fill;
+}
+
+#exitoGif{
+    height: 191px;
+    width: 365px;
+    opacity: 0.3;
+}
+
+.exitoBtn{
+    height: 36px;
+    width: 256px;
+    background: #FFF4FD;
+    border: 1px solid var(--font-violet);
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-violet);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
 }
 

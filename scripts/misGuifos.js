@@ -11,32 +11,32 @@ if (!localStorage.misGuifos) {
     localStorage.setItem('misGuifos', "[]")
 };
 
-async function misGuifosGrid(){
+async function misGuifosGrid() {
 
-    const arrayStorage =  localStorage.getItem('misGuifos');
-    let  array = JSON.parse(arrayStorage);
+    const arrayStorage = localStorage.getItem('misGuifos');
+    let array = JSON.parse(arrayStorage);
 
     let misGuifosContainer = document.getElementById('misGuifosContainer');
 
-    for (let gifo of array){
+    for (let gifo of array) {
 
-        let myGif= await upGiphy.getGifById(gifo);
-        
-        let url= await myGif.data.images.downsized_medium.url;
-        let height= await myGif.data.images.downsized_medium.height;
-        let width= await myGif.data.images.downsized_medium.width;
+        let myGif = await upGiphy.getGifById(gifo);
 
-        let gif= document.createElement('img');
+        let url = await myGif.data.images.downsized_medium.url;
+        let height = await myGif.data.images.downsized_medium.height;
+        let width = await myGif.data.images.downsized_medium.width;
+
+        let gif = document.createElement('img');
         gif.setAttribute("src", url);
         gif.classList.add('gridMiniContainer');
-        
-        if (width>height){
+
+        if (width > height) {
             gif.classList.add('gridMiniContainerLarge');
         } else {
             gif.classList.add('gridMiniContainerSmall');
         }
         misGuifosContainer.appendChild(gif);
-        
+
     }
 
 };
@@ -160,14 +160,50 @@ subirGuifo.addEventListener("click", () => {
     cross.style.display = "block";
     videoContainer.style.display = "none"
 
-    let myGif = upGiphy.uploadGif(recorder.gif.blob);
-    let id=  upGiphy.getGifById(myGif);
-
-    console.log('este es el gif ' + myGif + 'y el id es ' + id);
-
-
+    let blob = recorder.gif.blob;
+    subiendoGif(blob);
 
 });
+
+async function subiendoGif(blob) {
+    let myGif = await upGiphy.uploadGif(blob);
+    let id = await upGiphy.getGifById(myGif);
+    console.log(id);
+    exitoMisGuifos(id);
+};
+
+function exitoMisGuifos(id) {
+    // CAMBIAR DE DIV AL ULTIMO Y SU TITULO
+    let ventanaCinco = document.getElementById('misGuifosCinco');
+    ventanaCinco.style.display = "none";
+    let ventanaSeis = document.getElementById('misGuifosSeis');
+    ventanaSeis.style.display = "block";
+    let titulo = document.querySelector("#windowTitle p")
+    titulo.innerText = "Guifo Subido Con Éxito";
+    ventanaInstrucciones.style.height = "391px";
+    ventanaInstrucciones.style.width = "721px";
+    
+    // AGREGAR URL DEL GIF
+    let miniGif= document.getElementById('exitoGif');
+    let urlGif= id.data.images.downsized_medium.url;
+    miniGif.setAttribute("src", urlGif);
+    let copiarUrlBtn= document.getElementById('copiarUrlBtn');
+
+    copiarUrlBtn.addEventListener("click", urlGif =>{
+        urlGif.select();
+        let ok= document.execCommand('copy');
+        if (ok){
+            alert('Enlace copiado en el portapapeles');
+        }else{
+            alert('Hubo un problema al copiar el enlace')
+        }
+        
+    })
+
+
+
+
+};
 
 
 cancelarBtn2.addEventListener("click", () => {

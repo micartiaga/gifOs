@@ -36,9 +36,9 @@
         <section id="crearGuifos">
             <div id="windowCrearGuifos" class="greyContainer">
 
-                <div id="windowTitle" class="gradientBar"> 
+                <div id="windowTitle" class="gradientBar">
                     <p> Crear Guifos</p>
-                    <img  id="misGuifosCross" src="./assets/button3.svg" alt="close">
+                    <img id="misGuifosCross" src="./assets/button3.svg" alt="close">
                 </div>
 
                 <div id="misGuifosInstructions">
@@ -50,7 +50,8 @@
 
                         <div id="misGuifosUnoText">
                             <p>
-                                Crear tu <i><b>guifo</b></i> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son: </p>
+                                Crear tu <i><b>guifo</b></i> es muy fácil, graba cualquier imagen con tu cámara y obtén
+                                guifos personalizados. Los pasos para crear tu guifo son: </p>
                             <ol>
                                 <li>Dar permisos de acceso a la cámara (sólo por el tiempo de uso) </li>
                                 <li>Capturar tu momento guifo </li>
@@ -64,26 +65,25 @@
                         <div id="misGuifosUnoBtn">
                             <button id="misGuifosUnoCancelar">
                                 Cancelar</button>
-                            <button id="misGuifosUnoComenzar"
-                         class="navButton">Comenzar</button>
+                            <button id="misGuifosUnoComenzar" class="navButton">Comenzar</button>
                         </div>
 
                     </div>
                     <div id="videoContainer" class="videoContainer">
 
-                    <video id="video" class="video" src=""></video>
+                        <video id="video" class="video" src=""></video>
+                    </div>
+                    <div id="misGuifosDos">
+
+                        <div id="capturarBtn">
+                            <img class="navButton" src="./assets/camera.svg" alt="">
+                            <p class="navButton">
+                                Capturar
+                            </p>
                         </div>
-                     <div id="misGuifosDos">
-                       
-                         <div id="capturarBtn">
-                             <img class="navButton" src="./assets/camera.svg" alt="">
-                             <p class="navButton">
-                                 Capturar
-                             </p>
-                         </div>
                     </div>
                     <div id="misGuifosTres">
-                        <div id="videoContainer2" >
+                        <div id="videoContainer2">
                         </div>
                         <div id="listoContainer">
                             <div id="timer" class="timer">00:00:00:05</div>
@@ -99,7 +99,7 @@
                         <div id="videoContainer3" class="videoContainer">
                             <img id="videoGif" src="" alt="">
                         </div>
-                        <div id="previaContainer" >
+                        <div id="previaContainer">
                             <div id="timer" class="timer">00:00:00:05</div>
                             <div id="progress">
                                 <button class="navButton"> <img src="./assets/forward.svg" alt=""> </button>
@@ -107,11 +107,10 @@
                             </div>
                             <div id="misGuifosCuatroBtn">
                                 <button id="repetirBtn"> Repetir Captura</button>
-                                <button id="subirGuifoBtn"
-                             class="navButton">Subir Guifo</button>
+                                <button id="subirGuifoBtn" class="navButton">Subir Guifo</button>
                             </div>
 
-                    </div>
+                        </div>
                     </div>
                     <div id="misGuifosCinco">
                         <div class="videoContainer">
@@ -119,16 +118,32 @@
                             <h2>Estamos subiendo tu guifo...</h2>
                             <div id="progressUpload" class="progressBar">
                             </div>
-                            <p>Tiempo restante: <s>38 años</s> algunos minutos<p>                                        
+                            <p>Tiempo restante: <s>38 años</s> algunos minutos
+                            <p>
                         </div>
                         <div>
                             <button class="navButton" id="misGuifosCincoCancelar">Cancelar</button>
                         </div>
 
                     </div>
-            </div>
+                    <div id="misGuifosSeis">
+                        <div>
+                            <div class="videoExito">
+                                <img id="exitoGif" src="" alt="">
+                            </div>
+                            <div id="exitoBotonesDescarga">
+                                <p>Guifo creado con éxito</p>
+                                <button class="exitoBtn" id="copiarUrlBtn">Copiar Enlace Guifo</button>
+                                <button class="exitoBtn" >Descargar Guifo</button>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="navButton" id="misGuifosSeisListo">Listo</button>
+                        </div>
+                    </div>
+                </div>
 
-            <div>
+                <div>
 
 
 
@@ -137,15 +152,15 @@
         <section id="misGuifos">
             <div class="whiteBarTitles">Mis guifos</div>
 
-            <div id="misGuifosContainer" class="gridContainer"> 
+            <div id="misGuifosContainer" class="gridContainer">
 
-                
+
             </div>
 
         </section>
     </main>
 
-   
+
     <script src="./scripts/misGuifos.js" type="module"></script>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 </body>

@@ -42,15 +42,14 @@ class Giphy {
                 method: 'POST',
                 body: blob
             });
-            console.log(res);
+            
             let upload = await res.json();
-            console.log(upload);
-            let idMyGiphy = upload.data.id;
-            console.log(idMyGiphy);
-
+            let idMyGiphy = await upload.data.id;
+            
             let arrayMisGuifos = JSON.parse(localStorage.getItem('misGuifos'));
             arrayMisGuifos.push(idMyGiphy);
             localStorage.setItem('misGuifos', JSON.stringify(arrayMisGuifos));
+            
             return idMyGiphy;
 
         } catch (err) {
@@ -59,19 +58,11 @@ class Giphy {
     };
 
     async getGifById(id) {
-
-        const res = await fetch("https://api.giphy.com/v1/gifs/" + id + "?" + this.apiKey);
+        const res = await fetch('https://api.giphy.com/v1/gifs/' + id + '?' + this.apiKey);
         const myGif = await res.json();
         
         return myGif
     };
-
-    // async gridMisGuifos(array){
-    //     for (gifo of array){
-    //         const res = awa
-    //     }
-
-    // }
 
 };
 
