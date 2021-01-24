@@ -201,7 +201,7 @@ function exitoMisGuifos(id, urlCopy) {
         document.execCommand('copy');
         textarea.style.display= "none";
         document.body.removeChild(textarea);
-        alert('Enlace copiado en el portapapeles' + urlCopy); 
+        alert('Enlace copiado en el portapapeles'); 
     });
 
     downloadBtn.addEventListener("click", async()=>{
