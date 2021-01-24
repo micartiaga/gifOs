@@ -375,23 +375,22 @@ width: inherit;
     line-height: 22px;
 }
 
-#misGuifosSeis div:first-child{
+#misGuifosSeisPasos{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
-#misGuifosSeis div:last-child{
+#misGuifosSeisExit{
     display: flex;
     justify-content: flex-end;
     margin-right: 46px;
     margin-top: 60px;
-}
+} 
 
 #exitoBotonesDescarga{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid red;
     margin-top: 49px;
     height: 124px;
     margin-right: 46px;
@@ -427,4 +426,11 @@ width: inherit;
     text-align: center;
     line-height: 18px;
 }
+
+#misGuifosSeisListo{
+    width: 144px;
+    height: 36px;
+}
+
+
 

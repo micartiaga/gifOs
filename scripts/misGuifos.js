@@ -57,7 +57,8 @@ const repetirCaptura = document.getElementById('repetirBtn');
 const subirGuifo = document.getElementById('subirGuifoBtn');
 const cancelarBtn2 = document.getElementById('misGuifosCincoCancelar');
 const videoContainer = document.getElementById('videoContainer');
-
+const listoBtn2= document.getElementById('misGuifosSeisListo');
+const copyUrl= document.getElementById('copiarUrlBtn');
 
 
 
@@ -168,11 +169,13 @@ subirGuifo.addEventListener("click", () => {
 async function subiendoGif(blob) {
     let myGif = await upGiphy.uploadGif(blob);
     let id = await upGiphy.getGifById(myGif);
+let urlCopy= await id.data.url;
     console.log(id);
-    exitoMisGuifos(id);
+    console.log(urlCopy);
+    exitoMisGuifos(id, urlCopy);
 };
 
-function exitoMisGuifos(id) {
+function exitoMisGuifos(id, urlCopy) {
     // CAMBIAR DE DIV AL ULTIMO Y SU TITULO
     let ventanaCinco = document.getElementById('misGuifosCinco');
     ventanaCinco.style.display = "none";
@@ -187,36 +190,44 @@ function exitoMisGuifos(id) {
     let miniGif= document.getElementById('exitoGif');
     let urlGif= id.data.images.downsized_medium.url;
     miniGif.setAttribute("src", urlGif);
-    let copiarUrlBtn= document.getElementById('copiarUrlBtn');
-
-    copiarUrlBtn.addEventListener("click", urlGif =>{
-        urlGif.select();
-        let ok= document.execCommand('copy');
-        if (ok){
-            alert('Enlace copiado en el portapapeles');
-        }else{
-            alert('Hubo un problema al copiar el enlace')
-        }
-        
-    })
-
-
-
-
+    
+    copyUrl.addEventListener("click", ()=>{
+    console.log(urlCopy);
+    let textarea= document.createElement('textarea');
+        document.body.appendChild(textarea);
+        textarea.value= urlCopy;
+        textarea.select();
+        document.execCommand('copy');
+        textarea.style.display= "none";
+        document.body.removeChild(textarea);
+        alert('Enlace copiado en el portapapeles' + urlCopy); 
+    });
 };
+
+
+
 
 
 cancelarBtn2.addEventListener("click", () => {
     showMisGuifos();
 })
 
+listoBtn2.addEventListener("click", ()=>{
+    showMisGuifos();
+} );
 
 
 
 
-// HACER QUE APAREZCA LA ULTIMA PARTE DE LA SUBIDA CON BOTON DESCARGA Y DEMAS
-// HACER GRID DE MIS GUIFOS
+
+
+
+
+//COPIAR URL EN PORTAPAPELES
+// HACER BARRA PROGRESO Y RELOJ
+// VER COMO DESCARGAR GIF
+// HOVER DE BOTONES
 // VOLVER A LA HOME Y CAMBIAR EL THEME
-// AGREGAR LINK A MISGUIFOS DE LA HOME
+
 
 
