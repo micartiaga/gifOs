@@ -59,6 +59,7 @@ const cancelarBtn2 = document.getElementById('misGuifosCincoCancelar');
 const videoContainer = document.getElementById('videoContainer');
 const listoBtn2= document.getElementById('misGuifosSeisListo');
 const copyUrl= document.getElementById('copiarUrlBtn');
+const downloadBtn= document.getElementById('downloadBtn');
 
 
 
@@ -202,6 +203,19 @@ function exitoMisGuifos(id, urlCopy) {
         document.body.removeChild(textarea);
         alert('Enlace copiado en el portapapeles' + urlCopy); 
     });
+
+    downloadBtn.addEventListener("click", async()=>{
+        let link= document.createElement('a');
+        let res= await fetch(urlGif);
+        let file= await res.blob();
+        link.download = "myGif";
+        link.href = window.URL.createObjectURL(file);
+        // document.body.appendChild(link);
+        // link.display.style= "none";
+        link.click();
+        window.URL.revokeObjectURL(link.href);
+        document.body.removeChild(link);
+    })
 };
 
 
