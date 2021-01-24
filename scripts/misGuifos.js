@@ -1,11 +1,15 @@
 import Recorder from "./recorder.js";
 import Giphy from "./giphy.js";
+import {theme} from "./theme.js";
+
 
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const urlUp = "https://upload.giphy.com/v1";
 
 const recorder = new Recorder();
 const upGiphy = new Giphy(urlUp, key);
+
+// LOCAL STORAGE GIFS
 
 if (!localStorage.misGuifos) {
     localStorage.setItem('misGuifos', "[]")
@@ -43,6 +47,26 @@ async function misGuifosGrid() {
 
 misGuifosGrid();
 
+// THEME
+
+// console.log(theme);
+
+// const styleSheet = document.getElementById("themeStylesheet");
+// if(theme=="Day"){
+//      styleSheet.href = "style/day/day.css";
+//      let logoGifos = document.getElementById("logoImg");
+//      logoGifos.src = "./assets/gifOF_logo.png";
+//      let dropdownArrow = document.getElementById("dropdownArrow");
+//      dropdownArrow.src = "./assets/dropdown.svg";
+//      theme= "Day";
+//  }else{
+//      styleSheet.href = "style/night/night.css";
+//      let logoGifos = document.getElementById("logoImg");
+//           logoGifos.src = "./assets/gifOF_logo_dark.png";
+//      let dropdownArrow = document.getElementById("dropdownArrow");
+//      dropdownArrow.src = "./assets/forward.svg";
+//      theme= "Night";
+//  };
 
 
 // CREAR GUIFOS BOTONES PASO 1
@@ -60,8 +84,6 @@ const videoContainer = document.getElementById('videoContainer');
 const listoBtn2= document.getElementById('misGuifosSeisListo');
 const copyUrl= document.getElementById('copiarUrlBtn');
 const downloadBtn= document.getElementById('downloadBtn');
-
-
 
 
 // BOTONES
@@ -218,10 +240,6 @@ function exitoMisGuifos(id, urlCopy) {
     })
 };
 
-
-
-
-
 cancelarBtn2.addEventListener("click", () => {
     showMisGuifos();
 })
@@ -232,14 +250,7 @@ listoBtn2.addEventListener("click", ()=>{
 
 
 
-
-
-
-
-
-//COPIAR URL EN PORTAPAPELES
 // HACER BARRA PROGRESO Y RELOJ
-// VER COMO DESCARGAR GIF
 // HOVER DE BOTONES
 // VOLVER A LA HOME Y CAMBIAR EL THEME
 

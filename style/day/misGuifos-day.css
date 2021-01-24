@@ -14,6 +14,17 @@
     width: 24px;
 }
 
+.btnGrey{
+    background: #FFF4FD;
+}
+
+.btnGrey:hover {
+    outline: 1px dotted var(--font-violet) ;
+    outline-offset: -4px;
+    background-color: #F0E5EE;
+}
+
+
 /* VENTANA CREAR GUIFOS */
 
 #crearGuifos{
@@ -21,7 +32,6 @@
     justify-content: center;
     width: 1438px;
     margin-left: -100px;
-    
 }
 
 #windowCrearGuifos{
@@ -116,9 +126,7 @@
     margin-left: 16px; 
 }
 
-#misGuifosUnoBtn button:first-child{
-    background: #FFF4FD;
-}
+
 
 #misGuifosUnoCancelar a{
 height: inherit;

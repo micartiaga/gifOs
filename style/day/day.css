@@ -25,6 +25,12 @@ body{
     text-align: center;   
  }
 
+ .navButton:hover{
+   background-color: var(--button-color-day-pink2);
+   outline: 1px dotted var(--font-violet) ;
+   outline-offset: -4px;
+ }
+
 .gradientBar{
     background-image: var(--gradient-day);
     font-weight: bolder;
