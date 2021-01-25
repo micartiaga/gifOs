@@ -1,6 +1,3 @@
-
-// Cambiar dia/noche
-
 // CAMBIAR TEMA
 
 let count = 0;
@@ -11,33 +8,17 @@ const nightBtn = document.getElementById("sailorNightBtn");
 const styleSheet = document.getElementById("themeStylesheet");
 let themeStorage = localStorage.getItem('theme');
 
+// CHEQUEO SI EXISTE EL VALOR EN EL LOCAL Storage, SINO LO CREO
 if (!localStorage.theme) {
-    localStorage.setItem('theme', "Day")
+    localStorage.setItem('theme', 'Day')
 };
 
-
-
-if (themeStorage=="Day"){
-    styleSheet.href = "style/day/day.css";
-    let logoGifos = document.getElementById("logoImg");
-    logoGifos.src = "./assets/gifOF_logo.png";
-    let dropdownArrow = document.getElementById("dropdownArrow");
-    dropdownArrow.src = "./assets/dropdown.svg";
-    themeStorage= "Day";
-    localStorage.setItem('theme', "Day");
-    console.log(themeStorage);
+// HOJA DE ESTILO CORRESPONDIENTE AL VALOR
+if (themeStorage=='Day'){
+    day();
 }else{
-    styleSheet.href = "style/night/night.css";
-    let logoGifos = document.getElementById("logoImg");
-    logoGifos.src = "./assets/gifOF_logo_dark.png";
-    let dropdownArrow = document.getElementById("dropdownArrow");
-    dropdownArrow.src = "./assets/forward.svg";
-    themeStorage= "Night";
-    localStorage.setItem('theme', "Night");
-    console.log(themeStorage);
+    night();
 };
-
-
 
 
 // Desplegar dropdown
@@ -51,24 +32,30 @@ dropdownBtn.addEventListener("click", () => {
     count++
 });
 
-dayBtn.addEventListener("click", ()=>{
-    styleSheet.href = "style/day/day.css";
-    let logoGifos = document.getElementById("logoImg");
-    logoGifos.src = "./assets/gifOF_logo.png";
-    let dropdownArrow = document.getElementById("dropdownArrow");
-    dropdownArrow.src = "./assets/dropdown.svg";
-    themeStorage= "Day";
-    console.log(themeStorage);
-}
-);
+// BOTONES DEL DROPDOWN
 
-nightBtn.addEventListener("click",()=>{
+dayBtn.addEventListener("click", day);
+
+nightBtn.addEventListener("click", night);
+
+// TEMAS
+
+function night(){
     styleSheet.href = "style/night/night.css";
     let logoGifos = document.getElementById("logoImg");
     logoGifos.src = "./assets/gifOF_logo_dark.png";
     let dropdownArrow = document.getElementById("dropdownArrow");
     dropdownArrow.src = "./assets/forward.svg";
-    themeStorage= "Night";
+    localStorage.setItem('theme', 'Night');
     console.log(themeStorage);
-});
+};
 
+function day(){
+    styleSheet.href = "style/day/day.css";
+    let logoGifos = document.getElementById("logoImg");
+    logoGifos.src = "./assets/gifOF_logo.png";
+    let dropdownArrow = document.getElementById("dropdownArrow");
+    dropdownArrow.src = "./assets/dropdown.svg";
+    localStorage.setItem('theme', 'Day');
+    console.log(themeStorage);
+}

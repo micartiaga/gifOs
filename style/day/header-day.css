@@ -160,6 +160,7 @@ nav button{
 
 #btnMisGifos:active{
    border: none; 
+   
 }
 #btnMisGifos:hover{
    border: 1px dotted #110038 ;

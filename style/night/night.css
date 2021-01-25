@@ -1,6 +1,10 @@
 @import "./header-night.css";
 @import "./sugerencias-night.css";
+@import "./trending-night.css";
+@import "./search-night.css";
+@import "./misGuifos-night.css";
 
+/* FONDO */
 body{
    background-color: var(--font-violet);
 }
@@ -19,6 +23,12 @@ body{
     border: 1px solid var(--font-violet);
     box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
     text-align: center;   
+ }
+
+ .navButton:hover{
+   background-color: var(--button-color-night-pink2);
+   outline: 1px dotted var(--font-violet) ;
+   outline-offset: -4px;
  }
 
 .gradientBar{
