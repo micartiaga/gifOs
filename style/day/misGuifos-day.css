@@ -239,6 +239,7 @@ width: inherit;
 
 /* PASO 4 */
 
+
 #misGuifosCuatro{
     display: none;
     flex-direction: column;
@@ -283,6 +284,13 @@ width: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#myBar, #myBar2{
+    width: 1%;
+    background-color: var(--button-color-day-pink1) ;
+    height: inherit;
+    
 }
 
 #progressBar{

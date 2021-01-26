@@ -1,8 +1,6 @@
 import Recorder from "./recorder.js";
 import Giphy from "./giphy.js";
 
-
-
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const urlUp = "https://upload.giphy.com/v1";
 
@@ -46,7 +44,6 @@ async function misGuifosGrid() {
 };
 
 misGuifosGrid();
-
 
 // CREAR GUIFOS BOTONES PASO 1
 
@@ -131,9 +128,43 @@ listoBtn.addEventListener("click", () => {
     console.log("durationnn   " + duration);
     let timer2 = document.getElementById('timer2');
     let horaFinal = time(duration);
-    timer2.innerText = time(duration);
+    timer2.innerText = horaFinal;
+    progressBar(horaFinal);
+
 
 });
+
+function progressBar(durationMs) {
+    try {
+        // CONSIGUIENDO DURACION EN SEG
+        let hora = durationMs.slice(7, 8).replace(":", "");
+        let milisegundos= hora + "0";
+        console.log("progress bar hora " + milisegundos);
+        let i=0;
+
+        // PINTANDO BARRA
+        if(i==0){
+            i=1;
+            let container = document.getElementById('myBar');
+            let width = 1;
+            let run= setInterval(frame, milisegundos);
+   
+            function frame(){     
+                if (width >=100){
+                    clearInterval(run);                   
+                    i=0;
+                }else {
+                    width++;
+                    container.style.width = width + "%";
+                    console.log("ancho a ver si llega " + width);
+                }
+            };
+        }
+
+    } catch (error) {
+        return null;
+    }
+};
 
 function time(miliseg) {
     try {
@@ -167,6 +198,7 @@ repetirCaptura.addEventListener("click", () => {
 
 });
 
+
 subirGuifo.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
     titulo.innerText = "Subiendo Guifo";
@@ -182,7 +214,49 @@ subirGuifo.addEventListener("click", () => {
     let blob = recorder.gif.blob;
     subiendoGif(blob);
 
+    let duration = (recorder.finishTime.getTime()) - (recorder.startTime.getTime());
+    console.log("durationnn   " + duration);
+    let timer2 = document.getElementById('timer2');
+    let horaFinal = time(duration);
+    timer2.innerText = horaFinal;
+    progressBar2(horaFinal);
+
 });
+
+
+function progressBar2(durationMs) {
+    try {
+        // CONSIGUIENDO DURACION EN SEG
+        let hora = durationMs.slice(7, 8);
+        let milisegundos= hora + "0";
+        console.log("progress bar hora " + milisegundos);
+        let i=0;
+
+        // PINTANDO BARRA
+        if(i==0){
+            i=1;
+            let container = document.getElementById('myBar2');
+            let width = 1;
+            let run= setInterval(frame, milisegundos);
+   
+            function frame(){     
+                if (width >=100){
+                    clearInterval(run);                   
+                    i=0;
+                }else {
+                    width++;
+                    container.style.width = width + "%";
+                    console.log("ancho a ver si llega " + width);
+                }
+            };
+        }
+
+    } catch (error) {
+        return null;
+    }
+};
+
+
 
 async function subiendoGif(blob) {
     let myGif = await upGiphy.uploadGif(blob);
