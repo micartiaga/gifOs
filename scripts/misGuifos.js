@@ -60,9 +60,9 @@ const repetirCaptura = document.getElementById('repetirBtn');
 const subirGuifo = document.getElementById('subirGuifoBtn');
 const cancelarBtn2 = document.getElementById('misGuifosCincoCancelar');
 const videoContainer = document.getElementById('videoContainer');
-const listoBtn2= document.getElementById('misGuifosSeisListo');
-const copyUrl= document.getElementById('copiarUrlBtn');
-const downloadBtn= document.getElementById('downloadBtn');
+const listoBtn2 = document.getElementById('misGuifosSeisListo');
+const copyUrl = document.getElementById('copiarUrlBtn');
+const downloadBtn = document.getElementById('downloadBtn');
 
 // BOTONES
 
@@ -95,6 +95,7 @@ comenzarBtn.addEventListener("click", () => {
     });
 
     recorder.getStreamAndPlay();
+    let dateStarted = new Date().getTime();
 
 });
 
@@ -126,8 +127,24 @@ listoBtn.addEventListener("click", () => {
     videoContainer.style.display = "none";
 
     recorder.stopRecording();
+    let duration = (recorder.finishTime.getTime()) - (recorder.startTime.getTime());
+    console.log("durationnn   " + duration);
+    let timer2 = document.getElementById('timer2');
+    let horaFinal = time(duration);
+    timer2.innerText = time(duration);
 
 });
+
+function time(miliseg) {
+    try {
+        let hora = new Date(miliseg).toISOString().replace(".", ":").slice(11, 22);
+        return hora
+    }
+    catch (error) {
+        return null;
+    }
+};
+
 
 repetirCaptura.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
@@ -170,7 +187,7 @@ subirGuifo.addEventListener("click", () => {
 async function subiendoGif(blob) {
     let myGif = await upGiphy.uploadGif(blob);
     let id = await upGiphy.getGifById(myGif);
-let urlCopy= await id.data.url;
+    let urlCopy = await id.data.url;
     console.log(id);
     console.log(urlCopy);
     exitoMisGuifos(id, urlCopy);
@@ -186,28 +203,28 @@ function exitoMisGuifos(id, urlCopy) {
     titulo.innerText = "Guifo Subido Con Éxito";
     ventanaInstrucciones.style.height = "391px";
     ventanaInstrucciones.style.width = "721px";
-    
+
     // AGREGAR URL DEL GIF
-    let miniGif= document.getElementById('exitoGif');
-    let urlGif= id.data.images.downsized_medium.url;
+    let miniGif = document.getElementById('exitoGif');
+    let urlGif = id.data.images.downsized_medium.url;
     miniGif.setAttribute("src", urlGif);
-    
-    copyUrl.addEventListener("click", ()=>{
-    console.log(urlCopy);
-    let textarea= document.createElement('textarea');
+
+    copyUrl.addEventListener("click", () => {
+        console.log(urlCopy);
+        let textarea = document.createElement('textarea');
         document.body.appendChild(textarea);
-        textarea.value= urlCopy;
+        textarea.value = urlCopy;
         textarea.select();
         document.execCommand('copy');
-        textarea.style.display= "none";
+        textarea.style.display = "none";
         document.body.removeChild(textarea);
-        alert('Enlace copiado en el portapapeles'); 
+        alert('Enlace copiado en el portapapeles');
     });
 
-    downloadBtn.addEventListener("click", async()=>{
-        let link= document.createElement('a');
-        let res= await fetch(urlGif);
-        let file= await res.blob();
+    downloadBtn.addEventListener("click", async () => {
+        let link = document.createElement('a');
+        let res = await fetch(urlGif);
+        let file = await res.blob();
         link.download = "myGif";
         link.href = window.URL.createObjectURL(file);
         // document.body.appendChild(link);
@@ -222,9 +239,9 @@ cancelarBtn2.addEventListener("click", () => {
     showMisGuifos();
 })
 
-listoBtn2.addEventListener("click", ()=>{
+listoBtn2.addEventListener("click", () => {
     showMisGuifos();
-} );
+});
 
 
 

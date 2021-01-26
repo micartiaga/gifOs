@@ -8,7 +8,9 @@ class Recorder {
         }
 
         this.stream = '';
-        this.gifRecorder='';
+        this.gifRecorder = '';
+        this.startTime = 0;
+        this.finishTime = 0;
     }
     async getStreamAndPlay() {
         // STREAM
@@ -18,14 +20,14 @@ class Recorder {
                 width: { min: 838 },
                 height: { min: 440 }
             }
-        })  
+        })
         // PLAY
         this.video.srcObject = this.stream;
         console.log(this.stream);
         await this.video.play();
 
     };
-    async startRecording(){
+    async startRecording() {
         // RECORD
         this.gifRecorder = await RecordRTC(this.stream, {
             type: 'gif',
@@ -33,45 +35,45 @@ class Recorder {
             quality: 10,
             width: 360,
             hidden: 240,
-            
-            onGifRecordingStarted: function() {
+
+            onGifRecordingStarted: function () {
                 console.log('started')
             },
-        }); 
+        });
 
         await this.gifRecorder.startRecording();
         this.gifRecorder.stream = this.stream;
-        
+
+        this.startTime = new Date();
     };
 
-    async stopRecording(){
+    async stopRecording() {
+        this.finishTime = new Date();
+
         // STOP
-        await this.gifRecorder.stopRecording(async ()=>{
+        await this.gifRecorder.stopRecording(async () => {
             // GUARDAR GRABACION COMO GIF Y SU URL
-            let blob= await this.gifRecorder.getBlob();
+            let blob = await this.gifRecorder.getBlob();
             let form = new FormData();
             form.append('file', blob, 'myGif.gif');
 
-            this.gif.blob= form;
+            this.gif.blob = form;
 
-            let urlCaptura= this.gifRecorder.toURL();
-            this.gif.url=urlCaptura;
-            console.log("esto es lo que quiero ver como url "+urlCaptura);
+            let urlCaptura = this.gifRecorder.toURL();
+            this.gif.url = urlCaptura;
+            console.log("esto es lo que quiero ver como url " + urlCaptura);
             this.videoGif.setAttribute("src", this.gif.url);
-            this.video.style.display= "none";
-            
-             this.gifRecorder.reset();
-             this.gifRecorder.destroy();
-        
+            this.video.style.display = "none";
+
+            this.gifRecorder.reset();
+            this.gifRecorder.destroy();
         }
         );
 
-         this.stream.getTracks().forEach((track) => {
+        this.stream.getTracks().forEach((track) => {
             track.stop();
-         });
-
+        });
     }
-
 };
 
 export default Recorder;
