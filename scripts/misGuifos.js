@@ -1,6 +1,6 @@
 import Recorder from "./recorder.js";
 import Giphy from "./giphy.js";
-import {theme} from "./theme.js";
+
 
 
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";

@@ -6,7 +6,7 @@
     letter-spacing: 0;
     padding: 4px 8px;
     height: 23px;
-    box-shadow: 0 1px 0 0 #110038;
+    box-shadow: 0 1px 0 0 var(--font-violet);
     letter-spacing: 0;
 }
 
@@ -69,8 +69,7 @@ nav button{
 /* BOTON CREAR GIFOS */
 
 #btnCrearGifos{
-    width: 144px;
-   
+    width: 144px; 
 }
 
 #btnCrearGifos:hover, #btnCrearGifos:active{
@@ -97,7 +96,7 @@ nav button{
 
 #dropdownContainer:hover button, #dropdownContainer:active button  {
     background: var(--button-color-day-pink2);
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -4px;
  }
 
@@ -114,7 +113,6 @@ nav button{
     flex-direction: column;
     padding: 10px;
 }
-
 
 #dropdownContainer:active + div{
     visibility: visible;
@@ -133,6 +131,7 @@ nav button{
 }
 
 #sailorDayBtn{
+    color: var(--font-violet) ;
     background: #FFF4FD;
     border: 1px solid #CCA6C9;
     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
@@ -145,7 +144,7 @@ nav button{
 }
 
 #sailorDayBtn:hover, #sailorNightBtn:hover{
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -4px;
 }
 
@@ -159,11 +158,11 @@ nav button{
 }
 
 #btnMisGifos:active{
-   border: none; 
-   
+   border: none;  
 }
+
 #btnMisGifos:hover{
-   border: 1px dotted #110038 ;
+   border: 1px dotted var(--font-violet) ;
    height: 32px;
    padding-top: 4px;
    padding-left: 0;
@@ -185,14 +184,13 @@ nav button{
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
- 
 
 #buscarContainer form{
-        padding: 12px 15px ;
-        display: flex;
-        justify-content: space-between;
-        color: var(--font-grey) ;
-        align-items: center;
+    padding: 12px 15px ;
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-grey) ;
+    align-items: center;
 }
 
 /* BARRA BUSCADOR TEXTO */
@@ -216,16 +214,13 @@ nav button{
     letter-spacing: 0;
 }
 
-
 #textContainer:focus {
     outline: none;
     color: var(--font-violet);
 }
 
 
-
 /* BOTON BUSCAR */
-
 
 #buscarBtn{
     margin-left: 8px ;
@@ -242,7 +237,7 @@ nav button{
 
 #buscarBtn:active{
     background: #E6BBE2;
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -4px;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
@@ -314,8 +309,7 @@ nav button{
 
 #searchSuggestedContainer li:hover{
     background: #DBDBDB;
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet);
     outline-offset: -4px;
-
 }
 

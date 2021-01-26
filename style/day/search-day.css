@@ -43,6 +43,6 @@
 
 #tagsSuggestedContainer li:hover{
     background: var(--button-color-day-blue2);
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -5px;
 }

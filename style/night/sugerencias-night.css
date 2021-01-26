@@ -5,8 +5,8 @@
 }
 
 .miniContainerSugerencias{
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: var(--font-grey);
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
     height: 313px;
     width: 288px;    
     padding: 4px ;
@@ -27,7 +27,7 @@
 }
 
 .sugerenciaGif:hover, .seeMoreBtn:hover{
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -3px;
 }
 
@@ -38,9 +38,9 @@
 }
 
 .seeMoreBtn{
-    background-color: var(--button-color-day-blue1);
+    background-color: var(--button-color-night-blue1);
     border: 1px solid #4C2F99;
-    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    box-shadow: inset -2px -2px 0 0 #2124B3, inset 2px 2px 0 0 #FFFFFF;
     height: 34px;
     width: 81px;
     position: absolute;
@@ -55,5 +55,5 @@
 }
 
 .seeMoreBtn:hover{
-    background-color: var(--button-color-day-blue2) ;
+    background-color: var(--button-color-night-blue2) ;
 }

@@ -116,7 +116,7 @@
 #misGuifosUnoBtn button{
     width: 144px;
     height: 36px;
-    border: 1px solid #110038;
+    border: 1px solid var(--font-violet);
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
     color: var(--font-violet);
     font-size: 16px;
@@ -125,7 +125,6 @@
     line-height: 18px;
     margin-left: 16px; 
 }
-
 
 
 #misGuifosUnoCancelar a{
@@ -146,10 +145,9 @@ width: inherit;
     padding-right: 10px;
     padding-top: 21px;
     color: var(--font-violet);
-   
 }
 
-#capturarBtn img{
+#camera{
     height: 36px;
     width: 36x;
     padding: 9px;
@@ -203,7 +201,7 @@ width: inherit;
 
 .recButton{
     background: #FF6161;
-    border: 1px solid #110038;
+    border: 1px solid var(--font-violet);
     box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
     color: var(--font-white);
     font-size: 16px;
@@ -258,7 +256,7 @@ width: inherit;
 #misGuifosCuatroBtn button{
     width: 144px;
     height: 36px;
-    border: 1px solid #110038;
+    border: 1px solid var(--font-violet);
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
     color: var(--font-violet);
     font-size: 16px;

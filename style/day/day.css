@@ -1,6 +1,5 @@
 @import "./header-day.css";
 @import "./sugerencias-day.css";
-@import "./trending-day.css";
 @import "./search-day.css";
 @import "./misGuifos-day.css";
 
@@ -30,6 +29,8 @@ body{
    outline: 1px dotted var(--font-violet) ;
    outline-offset: -4px;
  }
+
+/* BARRAS */
 
 .gradientBar{
     background-image: var(--gradient-day);

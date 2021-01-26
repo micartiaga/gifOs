@@ -74,7 +74,7 @@
                     </div>
                     <div id="misGuifosDos">
                         <div id="capturarBtn">
-                            <img class="navButton" src="./assets/camera.svg" alt="">
+                            <img src="./assets/camera.svg" class="navButton" id="camera">
                             <p class="navButton hoverBtn">
                                 Capturar
                             </p>
@@ -86,7 +86,7 @@
                         <div id="listoContainer">
                             <div id="timer" class="timer">00:00:00:05</div>
                             <div id="listoBtn">
-                                <img class="recButton" src="./assets/recording.svg" alt="">
+                                <img class="recButton" id="rec" src="./assets/recording.svg" alt="">
                                 <p class="recButton">
                                     Listo
                                 </p>
@@ -132,7 +132,7 @@
                             <div id="exitoBotonesDescarga">
                                 <p>Guifo creado con éxito</p>
                                 <button class="exitoBtn" id="copiarUrlBtn">Copiar Enlace Guifo</button>
-                                <button id="downloadBtn" class="exitoBtn" >Descargar Guifo</button>
+                                <button id="downloadBtn" class="exitoBtn">Descargar Guifo</button>
                             </div>
                         </div>
                         <div id="misGuifosSeisExit">
@@ -158,10 +158,15 @@
         </section>
     </main>
 
+    <!-- ELEMENTOS DEL HEAD PARA EL THEME.JS -->
+    <div id="dropdownArrow" style="display: none;" ></div>
+    <div id="dropdownContainer" style="display: none;" ></div>
+    <div id="sailorDayBtn" style="display: none;" ></div>
+    <div id="sailorNightBtn" style="display: none;" ></div>
 
     <script src="./scripts/misGuifos.js" type="module"></script>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-    <script src="./scripts/theme.js"></script>
+    <script src="./scripts/theme.js" type="module"></script>
 </body>
 
 </html>

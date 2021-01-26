@@ -6,7 +6,7 @@
     letter-spacing: 0;
     padding: 4px 8px;
     height: 23px;
-    box-shadow: 0 1px 0 0 #110038;
+    box-shadow: 0 1px 0 0 var(--font-violet);
     letter-spacing: 0;
 }
 
@@ -22,8 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
+    max-width: 1210px;
 }
 
 /* LOGO GIFOS */
@@ -71,13 +70,19 @@ nav button{
 
 #btnCrearGifos{
     width: 144px;
-    padding-top: 7px;
 }
 
 #btnCrearGifos:hover, #btnCrearGifos:active{
     background: var(--button-color-night-pink2);
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -4px;
+}
+
+#btnCrearGifos a{
+    height: 36px;
+    width: 144px;
+    display: block;
+    padding-top: 7px;
 }
 
 /* BOTON ELEGIR TEMA */
@@ -91,7 +96,7 @@ nav button{
 
 #dropdownContainer:hover button, #dropdownContainer:active button  {
     background: var(--button-color-night-pink2);
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -4px;
  }
 
@@ -125,10 +130,6 @@ nav button{
     padding-left: 16px ;
 }
 
-#dropdownArrow{
-    transform: rotate(-270deg);  
-}
-
 #sailorDayBtn{
     color: var(--font-violet) ;
     background: #CCCCCC;
@@ -136,15 +137,20 @@ nav button{
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#sailorDayBtn span{
-    border-bottom: 1px solid var(--font-violet);
-}
-
-
 #sailorNightBtn{
-    background: var(--buton-color-night-blue2);
+    background: var(--button-color-night-blue2);
     border: 1px solid rgba(51,53,143,0.20);
     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#sailorDayBtn:hover{
+    outline: 1px dotted var(--font-violet) ;
+    outline-offset: -4px;
+}
+
+#sailorNightBtn:hover{
+    outline: 1px dotted var(--font-white) ;
+    outline-offset: -4px;
 }
 
 /* BOTON MIS GIFOS */
@@ -157,8 +163,7 @@ nav button{
 }
 
 #btnMisGifos:active {
-    border: none ;
-  
+    border: none ; 
 }
 
 #btnMisGifos:active span, #btnMisGifos:hover span{
@@ -179,20 +184,22 @@ nav button{
     height: 99px; 
     width: 1200px;
     margin-left: 100px;
+    padding: 3px;
+}
+
+.greyContainer{
     display: flex;
     flex-direction: column;
     background: var(--font-grey);
     box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
-    padding: 3px;
 }
- 
 
 #buscarContainer form{
-        padding: 12px 15px ;
-        display: flex;
-        justify-content: space-between;
-        color: var(--font-grey) ;
-        align-items: center;
+    padding: 12px 15px ;
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-grey) ;
+    align-items: center;
 }
 
 /* BARRA BUSCADOR TEXTO */
@@ -202,7 +209,7 @@ nav button{
     background: #FFFFFF;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
-    padding: 13px 16px;
+    padding: 13px 16px; 
     line-height: 22px;
     width: 100%;
     border: none;
@@ -216,22 +223,16 @@ nav button{
     letter-spacing: 0;
 }
 
-
 #textContainer:focus {
     outline: none;
     color: var(--font-violet);
 }
 
 
-
 /* BONTON BUSCAR */
-
 
 #buscarBtn{
     margin-left: 8px ;
-    background: var(--font-grey);
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
     width: 102px;
     height: 36px;
     display: flex;
@@ -241,14 +242,88 @@ nav button{
     padding-right: 14px;
     line-height: 18px;
     font-size: 16px;
+}
+
+#buscarBtn:active{
+    background: var(--button-color-night-pink2);
+    outline: 1px dotted var(--font-violet) ;
+    outline-offset: -4px;
+    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-white );
+}
+
+.buscarBtnInactive{
+    background: var(--font-grey);
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
     color: #8f8f8f ;
 }
 
 
-#lupita{
-    background-image: url(../../assets/Combined\ Shape.svg);
+.buscarBtnActive{
+    background:var(--button-color-night-pink1);
+    border: 1px solid var(--font-violet);
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-white);
+}
+
+
+.lupitaInactive{
+    background-image: url(../../assets/Combined\ Shape.svg); 
     height: 16px;
     width: 16px;
 }
 
+.lupitaActive{
+    background-image: url(../../assets/lupa_light.svg);
+    height: 16px;
+    width: 16px;
+}
 
+#searchSuggestedContainer{
+    margin-left: 100px;
+    width: 1200px;
+    height: 160px;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+}
+
+
+.searchSuggestedUl {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 15px;
+    background: var(--font-grey);
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.searchSuggestedUl2{
+    background: none;
+}
+
+.searchSuggestedContainerLi{
+    list-style: none;
+    width: 1057px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    background: #CCCCCC;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-violet);
+}
+
+#searchSuggestedContainer li:hover{
+    background: var(--font-grey);
+    outline: 1px dotted var(--font-violet);
+    outline-offset: -4px;
+}
+
+#dropdownArrow{
+    transform: rotate(-270deg);  
+} 

@@ -6,7 +6,7 @@
 
 .miniContainerSugerencias{
     background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    box-shadow: inset -2px -2px 0 0 var(--font-grey), inset 2px 2px 0 0 #FFFFFF;
     height: 313px;
     width: 288px;    
     padding: 4px ;
@@ -27,7 +27,7 @@
 }
 
 .sugerenciaGif:hover, .seeMoreBtn:hover{
-    outline: 1px dotted #110038 ;
+    outline: 1px dotted var(--font-violet) ;
     outline-offset: -3px;
 }
 

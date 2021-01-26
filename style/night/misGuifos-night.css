@@ -1,0 +1,444 @@
+/* HEADER */
+
+#logoMisGuifos a{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 134px;
+    margin-left: 60px ;
+    margin-top: 35px;
+    margin-bottom: 75px;
+}
+
+#logoMisGuifos a :first{
+    width: 24px;
+}
+
+.btnGrey{
+    background: var(--font-violet);  
+}
+
+.btnGrey:hover {
+    outline: 1px dotted var(--font-white) ;
+    outline-offset: -4px;
+    background-color: var(--font-violet);
+}
+
+
+/* VENTANA CREAR GUIFOS */
+
+#crearGuifos{
+    display: flex;
+    justify-content: center;
+    width: 1438px;
+    margin-left: -100px;
+}
+
+#windowCrearGuifos{
+    padding: 3px;
+    width: 684px;
+    height: 386px;
+}
+
+#windowTitle{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px ;
+}
+
+#misGuifosCross{
+    display: none;
+}
+
+/* PASO 1- CREAR GUIFOS */
+
+#misGuifosUno{
+    visibility: visible;
+    font-size: 14px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+#misGuifosUnoTitle {    
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 20px;
+    display: flex;
+    padding-left:25px ;
+    padding-top: 30px ;
+}
+
+#misGuifosUnoTitle img{
+    margin-right: 16px;
+    height: 32px;
+    margin-bottom: 7px;
+}
+
+#misGuifosUnoText{   
+    display: flex;
+    flex-direction: column;
+    height: 190px;
+    width: 518px;
+    justify-content: space-between;
+    margin-left: 73px ;
+}
+
+#misGuifosUnoText ol{
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+    counter-reset: list;
+}
+
+#misGuifosUnoText  ol li{
+    list-style: none;
+}
+
+#misGuifosUnoText  ol li:before{
+    font-weight: bold;
+    content: counter(list) ") ";
+    counter-increment: list;
+}
+
+#misGuifosUnoBtn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 36px;
+    padding-top: 28px;
+}
+
+
+#misGuifosUnoBtn button{
+    width: 144px;
+    height: 36px;
+    border: 1px solid var(--font-grey);
+    box-shadow: inset -1px -1px 0 0 #5C5C5C, inset 1px 1px 0 0 #FFF4FD;    
+    color: var(--font-white);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-left: 16px; 
+}
+
+
+#misGuifosUnoCancelar a{
+height: inherit;
+width: inherit;
+}
+
+/* PASO DOS */
+
+#misGuifosDos{
+    display: none;
+    flex-direction: column;
+}
+
+#capturarBtn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 21px;
+    color: var(--font-white);
+
+}
+
+#capturarBtn img{
+    height: 36px;
+    width: 36x;
+    padding: 9px;
+}
+
+#capturarBtn p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 144px;
+    height: 36px;
+    margin-left: -1px;
+}
+
+#videoContainer{
+    display: none;
+}
+
+.videoContainer{
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    height: 440px;
+    width: 838px;
+    margin-top: 10.6px;
+    margin-left: 8px;
+    overflow: hidden;
+    object-fit: fill;
+ 
+}
+
+/* PASO 3 */
+
+#misGuifosTres{
+    display: none;
+    flex-direction: column;
+}
+
+#listoContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-top: 21px;
+    padding-left: 9px;  
+}
+
+#listoBtn{
+    display: flex;
+    width: 180px;
+}
+
+.recButton{
+    background: #FF6161;
+    border: 1px solid var(--font-violet);
+    box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-white);
+    font-size: 16px;
+    margin-left: -1px;
+}
+
+#listoBtn img{
+    height: 36px;
+    width: 36x;
+    padding: 9px;
+}
+
+#listoBtn p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 144px;
+    height: 36px;
+}
+
+.timer{
+    height: 36px;
+    width: 124px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;  
+    text-align: center;
+    font-size: 16px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    line-height: 22px;
+    padding-top: 7px;
+}
+
+
+/* PASO 4 */
+
+#misGuifosCuatro{
+    display: none;
+    flex-direction: column;
+}
+
+#previaContainer{
+    margin-top: 3px;
+    display: flex;
+    padding: 21px 9px ;
+    height: 73px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#misGuifosCuatroBtn button{
+    width: 144px;
+    height: 36px;
+    border: 1px solid var(--font-grey);
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-white);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-left: 16px; 
+}
+
+#misGuifosCuatroBtn button:first-child{
+    background: var(--font-violet);
+    margin-left: 119px;
+}
+
+#progress{
+    display: flex;
+    align-items: center;
+}
+
+#progress button{
+    height: 20px;
+    width: 20px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progressBar{
+    width: 240px;
+    height: 24px;  
+}
+
+.progressBar{
+    background: #B4B4B4;
+    border: 1px solid #979797;
+    box-shadow: inset 2px 2px 0 0 #E6E6E6, inset -2px -2px 0 0 #000000;
+}
+
+#videoContainer3{
+    overflow: hidden;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#videoContainer3 img{
+    height: inherit; 
+    width: inherit;
+}
+
+/* PASO 5 */
+
+#misGuifosCinco{
+    display: none;
+    flex-direction: column;
+}
+
+#misGuifosCinco div:first-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#misGuifosCinco h2{
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    margin-top: 8px ;
+}
+
+#progressUpload{
+    height: 24px;
+    width: 324px;
+    margin-top: 39px;
+    margin-bottom: 8px;
+}
+
+#misGuifosCinco p {
+    font-size: 12px;
+    color: rgba(17,0,56,0.64);
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 14px;
+}
+
+#misGuifosCinco p s{
+    color: #00001A;
+}
+
+#misGuifosCinco button{
+    background: var(--font-violet);
+    width: 144px;
+    height: 36px;
+    color: var(--font-white);
+    border: 1px solid var(--font-grey);
+}
+
+#misGuifosCinco div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 18px;
+    padding-right: 9px ;
+}
+
+/* PASO 6 */
+
+#misGuifosSeis{
+    display: none;
+    flex-direction: column;
+}
+
+#misGuifosSeis p{
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--font-violet);
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+#misGuifosSeisPasos{
+    display: flex;
+    justify-content: space-between; 
+}
+
+#misGuifosSeisExit{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 46px;
+    margin-top: 60px;
+} 
+
+#exitoBotonesDescarga{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 49px;
+    height: 124px;
+    margin-right: 46px;
+}
+
+.videoExito{
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    height: 196px;
+    width: 371px;
+    margin-top: 27px;
+    margin-left: 24px;
+    overflow: hidden;
+    object-fit: fill;
+}
+
+#exitoGif{
+    height: 191px;
+    width: 365px;
+    opacity: 0.3;
+}
+
+.exitoBtn{
+    height: 36px;
+    width: 256px;
+    background: var(--font-violet);
+    border: 1px solid var(--font-grey);
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    color: var(--font-white);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+}
+
+#misGuifosSeisListo{
+    width: 144px;
+    height: 36px;
+}
+
+
+
