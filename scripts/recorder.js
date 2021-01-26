@@ -52,9 +52,6 @@ class Recorder {
             let form = new FormData();
             form.append('file', blob, 'myGif.gif');
 
-            // QUIERO LLORAR ESTO NO SIRVE :(
-            // console.log("Este es el file " + form.get('file'));
-
             this.gif.blob= form;
 
             let urlCaptura= this.gifRecorder.toURL();
@@ -63,8 +60,6 @@ class Recorder {
             this.videoGif.setAttribute("src", this.gif.url);
             this.video.style.display= "none";
             
-            // ESTO SIRVE PERO NO SE POR QUE, ME BORRA TODO
-
              this.gifRecorder.reset();
              this.gifRecorder.destroy();
         
@@ -80,41 +75,5 @@ class Recorder {
 };
 
 export default Recorder;
-
-
-
-// Recorder.GIF TIENE LA URL Y EL Blob
-// NECESITO SUBIR ESO COMO UN GIF/form A LA API CON UN POST
-
-// PARA ESO TENGO QUE CREAR UN NUEVO TIPO DE GIPHY PERO CON OTRA URL, LA DE UPLOAD --- upload.giphy.com/v1/gifs/
-
-// PARA QUE NECESITO EL FILE? NI IDEA
-// A ESTA INSTANCIA LA BARRA DE PROGRESO Y EL RELOJ SON UN LUJO
-
-
-
-
-
-// async function uploadGif(){
-//     try{
-//         const blob = recorder.gif.blob
-//         let upload = await upGiphy.uploadGif(blob);
-//         const id = upload.data.id
-
-//         return id;    CON ESTO TENGO EL ID DEL GIF PARA BUSCARLO, ASI SU URL Y MOSTRARLO
-
-//     }catch(err){
-//         console.log(err)
-//     }
-// };
-
-
-// async getGifById(id) {
-
-//     const RES = await fetch(`${this.url}/gifs/${id}?${this.key}`);
-//     const myGif = await res.json();
-//     return myGif
-//  }
-
 
 

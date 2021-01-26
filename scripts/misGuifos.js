@@ -47,27 +47,6 @@ async function misGuifosGrid() {
 
 misGuifosGrid();
 
-// THEME
-
-// console.log(theme);
-
-// const styleSheet = document.getElementById("themeStylesheet");
-// if(theme=="Day"){
-//      styleSheet.href = "style/day/day.css";
-//      let logoGifos = document.getElementById("logoImg");
-//      logoGifos.src = "./assets/gifOF_logo.png";
-//      let dropdownArrow = document.getElementById("dropdownArrow");
-//      dropdownArrow.src = "./assets/dropdown.svg";
-//      theme= "Day";
-//  }else{
-//      styleSheet.href = "style/night/night.css";
-//      let logoGifos = document.getElementById("logoImg");
-//           logoGifos.src = "./assets/gifOF_logo_dark.png";
-//      let dropdownArrow = document.getElementById("dropdownArrow");
-//      dropdownArrow.src = "./assets/forward.svg";
-//      theme= "Night";
-//  };
-
 
 // CREAR GUIFOS BOTONES PASO 1
 
@@ -84,7 +63,6 @@ const videoContainer = document.getElementById('videoContainer');
 const listoBtn2= document.getElementById('misGuifosSeisListo');
 const copyUrl= document.getElementById('copiarUrlBtn');
 const downloadBtn= document.getElementById('downloadBtn');
-
 
 // BOTONES
 
@@ -248,11 +226,6 @@ listoBtn2.addEventListener("click", ()=>{
     showMisGuifos();
 } );
 
-
-
-// HACER BARRA PROGRESO Y RELOJ
-// HOVER DE BOTONES
-// VOLVER A LA HOME Y CAMBIAR EL THEME
 
 
 

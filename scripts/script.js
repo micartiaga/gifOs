@@ -3,8 +3,6 @@ import Giphy from "./giphy.js";
 const key = "jkB76Z9RX3InY7Jduntvx3IS5q1b2oFb";
 const url = "https://api.giphy.com/v1";
 
-
-
 // HOY TE SUGERIMOS
 
 async function dailySuggested() {
@@ -180,7 +178,6 @@ const searchInput = document.getElementById('textContainer');
 const searchSuggestions = document.getElementById('searchSuggestedContainer');
 
 const searchSuggestionsTags = document.getElementById('tagsSuggestedContainer');
-
 
 // habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
 
