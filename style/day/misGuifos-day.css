@@ -286,22 +286,45 @@ width: inherit;
     justify-content: center;
 }
 
-#myBar, #myBar2{
-    width: 1%;
-    background-color: var(--button-color-day-pink1) ;
-    height: inherit;
-    
-}
-
 #progressBar{
     width: 240px;
     height: 24px;  
 }
 
 .progressBar{
-    background: #B4B4B4;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: var(--font-grey);
     border: 1px solid #979797;
+    object-fit: fill;
+    padding: 2px;
     box-shadow: inset 2px 2px 0 0 #E6E6E6, inset -2px -2px 0 0 #000000;
+}
+
+#myBar{
+    height: 18px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    object-fit: fill;
+}
+
+#progressUl {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-content: center; 
+    width: 234px; 
+    object-fit: fill;  
+}
+
+#progress li{
+list-style: none;
+background-color: #999999;
+height: inherit;
+width: 12px;
+
 }
 
 #videoContainer3{
@@ -312,10 +335,6 @@ width: inherit;
     justify-content: center;
 }
 
-#videoContainer3 img{
-    height: inherit; 
-    width: inherit;
-}
 
 /* PASO 5 */
 
@@ -346,6 +365,30 @@ width: inherit;
     width: 324px;
     margin-top: 39px;
     margin-bottom: 8px;
+}
+
+#myBar2{
+    height: 18px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    object-fit: fill;
+}
+
+#upload{
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-content: center; 
+    width: 318px; 
+    object-fit: fill;  
+}
+
+#upload li{
+    list-style: none;
+    background-color: #999999;
+    height: inherit;
+    width: 12px;
 }
 
 #misGuifosCinco p {

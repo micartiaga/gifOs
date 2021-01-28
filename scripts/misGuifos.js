@@ -60,6 +60,8 @@ const videoContainer = document.getElementById('videoContainer');
 const listoBtn2 = document.getElementById('misGuifosSeisListo');
 const copyUrl = document.getElementById('copiarUrlBtn');
 const downloadBtn = document.getElementById('downloadBtn');
+const progress = document.getElementById('progressUl');
+
 
 // BOTONES
 
@@ -124,45 +126,64 @@ listoBtn.addEventListener("click", () => {
     videoContainer.style.display = "none";
 
     recorder.stopRecording();
+
+    // TIME PROGRESS BAR
     let duration = (recorder.finishTime.getTime()) - (recorder.startTime.getTime());
-    console.log("durationnn   " + duration);
     let timer2 = document.getElementById('timer2');
     let horaFinal = time(duration);
     timer2.innerText = horaFinal;
-    progressBar(horaFinal);
 
+    // PROGRESS BAR
+    let liBar = progress.children;
+    greyLi(liBar);
+    progressBar();
+
+    // PLAY BTN
+    let play = document.getElementById('play');
+    let video = document.getElementById('videoPlay');
+    play.addEventListener("click", () => {
+        video.play();
+        greyLi(liBar);
+        progressBar();
+    });
 
 });
 
-function progressBar(durationMs) {
-    try {
-        // CONSIGUIENDO DURACION EN SEG
-        let hora = durationMs.slice(7, 8).replace(":", "");
-        let milisegundos= hora + "0";
-        console.log("progress bar hora " + milisegundos);
-        let i=0;
+function progressBar() {
+    let duration = (recorder.finishTime.getTime()) - (recorder.startTime.getTime());
+    console.log("DURACION PROGRESS BAR  -->" + duration);
 
-        // PINTANDO BARRA
-        if(i==0){
-            i=1;
-            let container = document.getElementById('myBar');
-            let width = 1;
-            let run= setInterval(frame, milisegundos);
-   
-            function frame(){     
-                if (width >=100){
-                    clearInterval(run);                   
-                    i=0;
-                }else {
-                    width++;
-                    container.style.width = width + "%";
-                    console.log("ancho a ver si llega " + width);
-                }
+    try {
+        let part = duration / 16;
+        console.log("esto seria el PART  " + part);
+
+        if (video.readyState > 0.1) {
+            for (let i = 1; i < (progress.children.length + 1); i++) {
+                setTimeout(() => {
+                    let j = i - 1;
+                    let li = progress.children[j];
+                    changeColorLi(li);
+                }, i * part)
             };
         }
-
     } catch (error) {
         return null;
+    }
+};
+
+function changeColorLi(li) {
+    let theme = localStorage.getItem('theme');
+    console.log("hello");
+    if (theme == 'Day') {
+        li.style.backgroundColor = '#F7C9F3';
+    } else {
+        li.style.backgroundColor = '#CE36DB';
+    }
+};
+
+function greyLi(liBar) {
+    for (let li of liBar) {
+        li.style.backgroundColor = '#999999';
     }
 };
 
@@ -175,7 +196,6 @@ function time(miliseg) {
         return null;
     }
 };
-
 
 repetirCaptura.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
@@ -198,7 +218,6 @@ repetirCaptura.addEventListener("click", () => {
 
 });
 
-
 subirGuifo.addEventListener("click", () => {
     let titulo = document.querySelector("#windowTitle p")
     titulo.innerText = "Subiendo Guifo";
@@ -212,59 +231,35 @@ subirGuifo.addEventListener("click", () => {
     videoContainer.style.display = "none"
 
     let blob = recorder.gif.blob;
+
+
+    let liBarUpload = upload.children;
+    greyLi(liBarUpload);
+    uploadBar();
     subiendoGif(blob);
-
-    let duration = (recorder.finishTime.getTime()) - (recorder.startTime.getTime());
-    console.log("durationnn   " + duration);
-    let timer2 = document.getElementById('timer2');
-    let horaFinal = time(duration);
-    timer2.innerText = horaFinal;
-    progressBar2(horaFinal);
-
 });
-
-
-function progressBar2(durationMs) {
-    try {
-        // CONSIGUIENDO DURACION EN SEG
-        let hora = durationMs.slice(7, 8);
-        let milisegundos= hora + "0";
-        console.log("progress bar hora " + milisegundos);
-        let i=0;
-
-        // PINTANDO BARRA
-        if(i==0){
-            i=1;
-            let container = document.getElementById('myBar2');
-            let width = 1;
-            let run= setInterval(frame, milisegundos);
-   
-            function frame(){     
-                if (width >=100){
-                    clearInterval(run);                   
-                    i=0;
-                }else {
-                    width++;
-                    container.style.width = width + "%";
-                    console.log("ancho a ver si llega " + width);
-                }
-            };
-        }
-
-    } catch (error) {
-        return null;
-    }
-};
-
-
 
 async function subiendoGif(blob) {
     let myGif = await upGiphy.uploadGif(blob);
     let id = await upGiphy.getGifById(myGif);
     let urlCopy = await id.data.url;
-    console.log(id);
-    console.log(urlCopy);
+
     exitoMisGuifos(id, urlCopy);
+};
+
+function uploadBar() {
+    let upload = document.getElementById('upload')
+    try {
+            for (let i = 1; i < (upload.children.length + 1); i++) {
+                setTimeout(() => {
+                    let j = i - 1;
+                    let li = upload.children[j];
+                    changeColorLi(li);
+                }, i* 100)
+            };
+    } catch (error) {
+        return null;
+    }
 };
 
 function exitoMisGuifos(id, urlCopy) {

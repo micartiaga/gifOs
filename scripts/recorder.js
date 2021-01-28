@@ -1,6 +1,7 @@
 class Recorder {
     constructor() {
         this.video = document.getElementById('video');
+        this.videoPlay = document.getElementById('videoPlay');
         this.videoGif = document.getElementById('videoGif')
         this.gif = {
             url: '',
@@ -11,6 +12,7 @@ class Recorder {
         this.gifRecorder = '';
         this.startTime = 0;
         this.finishTime = 0;
+        this.videoRecorder = '';
     }
     async getStreamAndPlay() {
         // STREAM
@@ -23,7 +25,7 @@ class Recorder {
         })
         // PLAY
         this.video.srcObject = this.stream;
-        console.log(this.stream);
+        // console.log(this.stream);
         await this.video.play();
 
     };
@@ -39,9 +41,19 @@ class Recorder {
             onGifRecordingStarted: function () {
                 console.log('started')
             },
+        })
+        this.videoRecorder = await RecordRTC(this.stream, {
+            type: 'video',
+            quality: 10,
+            mimeType: "video/webm; codecs=vp8",
+            frameRate: 30,
         });
 
+
         await this.gifRecorder.startRecording();
+        await this.videoRecorder.startRecording();
+
+        this.videoRecorder.stream = this.stream;
         this.gifRecorder.stream = this.stream;
 
         this.startTime = new Date();
@@ -56,19 +68,24 @@ class Recorder {
             let blob = await this.gifRecorder.getBlob();
             let form = new FormData();
             form.append('file', blob, 'myGif.gif');
-
             this.gif.blob = form;
-
+            
             let urlCaptura = this.gifRecorder.toURL();
             this.gif.url = urlCaptura;
-            console.log("esto es lo que quiero ver como url " + urlCaptura);
-            this.videoGif.setAttribute("src", this.gif.url);
-            this.video.style.display = "none";
 
             this.gifRecorder.reset();
             this.gifRecorder.destroy();
         }
         );
+
+        await this.videoRecorder.stopRecording( async()=> {
+            let videoBlob = this.videoRecorder.getBlob();
+            this.videoPlay.src = URL.createObjectURL(videoBlob);
+            this.videoPlay.load();           
+            this.videoRecorder.reset();
+            this.videoRecorder.destroy();
+            this.videoPlay.srcObject = null;
+        })
 
         this.stream.getTracks().forEach((track) => {
             track.stop();
