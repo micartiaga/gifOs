@@ -8,7 +8,7 @@ const nightBtn = document.getElementById("sailorNightBtn");
 const styleSheet = document.getElementById("themeStylesheet");
 let themeStorage = localStorage.getItem('theme');
 const camera = document.getElementById("camera");
-const rec= document.getElementById('rec');
+const rec = document.getElementById('rec');
 
 
 // CHEQUEO SI EXISTE EL VALOR EN EL LOCAL Storage, SINO LO CREO
@@ -17,9 +17,9 @@ if (!localStorage.theme) {
 };
 
 // HOJA DE ESTILO CORRESPONDIENTE AL VALOR
-if (themeStorage=='Day'){
+if (themeStorage == 'Day') {
     day();
-}else{
+} else {
     night();
 };
 
@@ -43,27 +43,24 @@ nightBtn.addEventListener("click", night);
 
 // TEMAS
 
-function night(){
+function night() {
     styleSheet.href = "style/night/night.css";
     let logoGifos = document.getElementById("logoImg");
     logoGifos.src = "./assets/gifOF_logo_dark.png";
     let dropdownArrow = document.getElementById("dropdownArrow");
-    dropdownArrow.src= "./assets/forward.svg";
-    camera.src= "./assets/camera_light.svg";
-    rec.src="./assets/recording_dark.svg";
+    dropdownArrow.src = "./assets/forward.svg";
+    camera.src = "./assets/camera_light.svg";
+    rec.src = "./assets/recording_dark.svg";
     localStorage.setItem('theme', 'Night');
-
-    
 };
 
-function day(){
+function day() {
     styleSheet.href = "style/day/day.css";
     let logoGifos = document.getElementById("logoImg");
     logoGifos.src = "./assets/gifOF_logo.png";
     let dropdownArrow = document.getElementById("dropdownArrow");
-    dropdownArrow.src= "./assets/dropdown.svg";
-    camera.src= "./assets/camera.svg";
-    rec.src="./assets/recording.svg";
+    dropdownArrow.src = "./assets/dropdown.svg";
+    camera.src = "./assets/camera.svg";
+    rec.src = "./assets/recording.svg";
     localStorage.setItem('theme', 'Day');
-    
 }

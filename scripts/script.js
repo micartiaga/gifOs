@@ -61,11 +61,8 @@ async function dailySuggested() {
                 let term = gettingHashtag.slice(1, gettingHashtag.length);
                 searchWord(term);
             }
-
-
             let tarjetaContainer = document.getElementById("sugerenciaCard");
             tarjetaContainer.appendChild(tarjeta);
-
         }
     }
     catch (err) {
@@ -79,7 +76,6 @@ dailySuggested();
 
 async function trending(offset) {
     try {
-        // ALMACENAR RANDOM NUMBER EN UN ARRAY Y HACER UN WHILE PARA CHEQUEAR QUE NO ESTE AHI
 
         for (let i = 0; i < 25; i++) {
             // FETCHING GIF
@@ -90,7 +86,6 @@ async function trending(offset) {
 
             let height = data[i].images.downsized_medium.height;
             let width = data[i].images.downsized_medium.width;
-
 
             //CREANDO TAG
             let originalTitle = data[i].title;
@@ -179,7 +174,7 @@ const searchSuggestions = document.getElementById('searchSuggestedContainer');
 
 const searchSuggestionsTags = document.getElementById('tagsSuggestedContainer');
 
-// habilitar boton cuando el textarea del input este lleno y desplegar sugerencias de search
+// habilitar boton y desplegar sugerencias de search
 
 searchInput.addEventListener("input", () => {
 
@@ -287,11 +282,8 @@ async function searchResultsGrid(term, offset) {
                 miniContainer.classList.remove("miniContainerHover");
                 tagBarContainer.classList.remove("tagBarContainerHover");
             });
-
-
         }
         searchMoreTagsRelated(term);
-        
     }
     catch (err) {
         return err;
@@ -344,14 +336,14 @@ async function searchMoreTagsRelated(term) {
 
     let tagMiniContainer = document.getElementById('tagsSuggestedContainerUl');
     tagMiniContainer.innerText = "";
-    
+
     tagMiniContainer.classList.add("tagsSuggestedUl");
-    
+
     for (let i = 0; i < 3; i++) {
-        
+
         let suggestedTagLi = document.createElement('li');
         let searchTags = tagsRelated.data[i].name;
-        
+
         suggestedTagLi.innerText = "#" + searchTags;
         suggestedTagLi.classList.add("tagsSuggestedContainerLi");
 
@@ -361,7 +353,7 @@ async function searchMoreTagsRelated(term) {
             let term = searchTags;
             searchWord(term);
         }
-        
+
         tagMiniContainer.appendChild(suggestedTagLi);
     }
     searchSuggestionsTags.style.visibility = "visible";

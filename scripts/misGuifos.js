@@ -106,11 +106,7 @@ capturarBtn.addEventListener("click", () => {
     ventanaDos.style.display = "none";
     ventanaTres.style.display = "flex";
 
-
     recorder.startRecording();
-
-
-
 });
 
 listoBtn.addEventListener("click", () => {
@@ -155,7 +151,6 @@ function progressBar() {
 
     try {
         let part = duration / 16;
-        console.log("esto seria el PART  " + part);
 
         if (video.readyState > 0.1) {
             for (let i = 1; i < (progress.children.length + 1); i++) {
@@ -173,7 +168,7 @@ function progressBar() {
 
 function changeColorLi(li) {
     let theme = localStorage.getItem('theme');
-    console.log("hello");
+
     if (theme == 'Day') {
         li.style.backgroundColor = '#F7C9F3';
     } else {
@@ -214,8 +209,6 @@ repetirCaptura.addEventListener("click", () => {
     video.style.display = "block";
 
     recorder.getStreamAndPlay();
-
-
 });
 
 subirGuifo.addEventListener("click", () => {
@@ -231,7 +224,6 @@ subirGuifo.addEventListener("click", () => {
     videoContainer.style.display = "none"
 
     let blob = recorder.gif.blob;
-
 
     let liBarUpload = upload.children;
     greyLi(liBarUpload);
@@ -296,8 +288,7 @@ function exitoMisGuifos(id, urlCopy) {
         let file = await res.blob();
         link.download = "myGif";
         link.href = window.URL.createObjectURL(file);
-        // document.body.appendChild(link);
-        // link.display.style= "none";
+     
         link.click();
         window.URL.revokeObjectURL(link.href);
         document.body.removeChild(link);

@@ -25,7 +25,6 @@ class Recorder {
         })
         // PLAY
         this.video.srcObject = this.stream;
-        // console.log(this.stream);
         await this.video.play();
 
     };

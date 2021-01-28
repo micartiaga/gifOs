@@ -35,6 +35,8 @@ class Giphy {
         return tagsRelated;
     }
 
+    // UPLOAD MIS GUIFOS
+
     async uploadGif(blob) {
         try {
 
