@@ -166,6 +166,10 @@ width: inherit;
     display: none;
 }
 
+#video{
+    width: 838px;
+}
+
 .videoContainer{
     background: #FFFFFF;
     border: 1px solid #979797;
@@ -176,7 +180,6 @@ width: inherit;
     margin-left: 8px;
     overflow: hidden;
     object-fit: fill;
- 
 }
 
 /* PASO 3 */

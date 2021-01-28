@@ -19,8 +19,7 @@ class Recorder {
         this.stream = await navigator.mediaDevices.getUserMedia({
             audio: false,
             video: {
-                width: { min: 838 },
-                height: { min: 440 }
+                height: { max: 480 }
             }
         })
         // PLAY
